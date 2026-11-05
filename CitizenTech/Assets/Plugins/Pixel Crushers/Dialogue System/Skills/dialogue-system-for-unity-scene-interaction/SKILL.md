@@ -4,7 +4,6 @@ description: "Use this skill whenever someone wants an NPC or object in the scen
 metadata:
   asset: "Dialogue System for Unity"
   publisher: "Pixel Crushers"
-  asset-version: "2.2.73.2"
   skill-version: "1.2.0"
   unity: "2022.3+"
   render-pipelines: "Built-in, URP, HDRP"
@@ -41,7 +40,7 @@ This skill covers connecting scene GameObjects to the Dialogue System: making NP
 ## Prerequisites
 
 - Unity 2022.3 LTS or newer
-- Dialogue System for Unity 2.2.73.2 installed
+- Dialogue System for Unity installed
 - A `Dialogue Manager` GameObject in the scene (created via **Tools > Pixel Crushers > Dialogue System > Wizards > Dialogue Manager Wizard**)
 - A `DialogueDatabase` asset assigned to the Dialogue Manager's **Initial Database** field, containing the conversations you want to start
 - **2D projects:** The scripting define `USE_PHYSICS2D` must be enabled (Welcome Window → tick **USE_PHYSICS2D** → Apply). Without it, 2D collider events (`OnTriggerEnter2D`, `OnCollisionEnter2D`) are not compiled into the trigger components.

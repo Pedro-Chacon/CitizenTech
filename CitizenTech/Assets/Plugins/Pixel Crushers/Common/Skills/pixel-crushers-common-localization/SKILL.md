@@ -4,7 +4,6 @@ description: "Use this skill whenever you need to add multiple languages to a ga
 metadata:
   asset: "Pixel Crushers Common"
   publisher: "Pixel Crushers"
-  asset-version: "1.10.73"
   skill-version: "1.0.0"
   unity: "2022.3+"
   render-pipelines: "Built-in, URP, HDRP"

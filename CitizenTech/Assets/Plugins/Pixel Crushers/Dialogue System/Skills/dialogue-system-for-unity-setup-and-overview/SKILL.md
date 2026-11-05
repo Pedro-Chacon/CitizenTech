@@ -4,7 +4,6 @@ description: "Use this skill whenever someone wants to install, set up, verify, 
 metadata:
   asset: "Dialogue System for Unity"
   publisher: "Pixel Crushers"
-  asset-version: "2.2.73.2"
   skill-version: "1.2.0"
   unity: "2022.3+"
   render-pipelines: "Built-in, URP, HDRP"
@@ -17,7 +16,7 @@ metadata:
 
 # Dialogue System for Unity — Setup & Overview
 
-The Dialogue System for Unity (Pixel Crushers, v2.2.73.2) is a comprehensive AAA-quality dialogue, conversation, quest, and save system. It centres on a node-based **Dialogue Editor**, a **DialogueDatabase** ScriptableObject, a singleton **Dialogue Manager** GameObject, and a **Sequencer** for camera and audio events. This skill covers first-time install verification, the Welcome Window, creating the Dialogue Manager, configuring scripting defines, locating key files, running the demo, and an index of all sibling skills.
+The Dialogue System for Unity (Pixel Crushers) is a comprehensive AAA-quality dialogue, conversation, quest, and save system. It centres on a node-based **Dialogue Editor**, a **DialogueDatabase** ScriptableObject, a singleton **Dialogue Manager** GameObject, and a **Sequencer** for camera and audio events. This skill covers first-time install verification, the Welcome Window, creating the Dialogue Manager, configuring scripting defines, locating key files, running the demo, and an index of all sibling skills.
 
 ## When to use this skill
 
@@ -44,7 +43,7 @@ The Dialogue System for Unity (Pixel Crushers, v2.2.73.2) is a comprehensive AAA
 ## Prerequisites
 
 - Unity 2022.3 LTS or newer
-- Dialogue System for Unity 2.2.73.2 imported from the Asset Store
+- Dialogue System for Unity imported from the Asset Store
 - All render pipelines are supported; the demo defaults to URP — import the matching `.unitypackage` from `Assets/Plugins/Pixel Crushers/Dialogue System/Demo/` for BiRP or HDRP
 
 **Programmatic install check:**
@@ -84,9 +83,8 @@ If this returns `false`: the asset is not imported or has not compiled. Import f
 **Steps:**
 1. Choose **Tools > Pixel Crushers > Dialogue System > Welcome Window**.
 2. The Welcome Window opens, displaying version number, quick links to the manual, video tutorials, and FAQ, plus scripting symbol checkboxes.
-3. Confirm the version shown matches `Assets/Plugins/Pixel Crushers/Dialogue System/_README.txt` (2.2.73.2).
 
-**Expected result:** Welcome Window is open; version reads 2.2.73.2; no Console errors.
+**Expected result:** Welcome Window is open; no Console errors.
 
 ---
 
@@ -250,7 +248,7 @@ If this returns `false`: the asset is not imported or has not compiled. Import f
 ## Verification
 
 - `IsDialogueSystemInstalled()` returns `true`
-- Welcome Window opens without error and shows version **2.2.73.2**
+- Welcome Window opens without error
 - Scene contains a `Dialogue Manager` GameObject with a `DialogueSystemController` component (wrapper type `PixelCrushers.DialogueSystem.Wrappers.DialogueSystemController`)
 - `DialogueManager.hasInstance` is `true` at runtime
 - After applying defines, no new compile errors appear in the Console

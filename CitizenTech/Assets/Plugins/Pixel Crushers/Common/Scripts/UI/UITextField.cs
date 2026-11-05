@@ -275,7 +275,8 @@ namespace PixelCrushers
             return true;
         }
 
-#if TMP_PRESENT && UNITY_EDITOR
+#if TMP_PRESENT
+#if UNITY_EDITOR
         public void ConvertTextToTMP()
         {
             if (uiText == null) return;
@@ -316,7 +317,13 @@ namespace PixelCrushers
                 default: return TMPro.TextAlignmentOptions.Center;
             }
         }
-#endif //TMP_PRESENT && UNITY_EDITOR
+#else //!UNITY_EDITOR
+        public void ConvertTextToTMP()
+        {
+            Debug.LogWarning("Automatic conversion of Text to TextMesh Pro is not available in the evaluation version. Manually unassigned the Text component(s) and assign TextMeshProUGUI component(s) to relevant fields in the inspector.");
+        }
+#endif //UNITY_EDITOR
+#endif //TMP_PRESENT
 
     }
 }

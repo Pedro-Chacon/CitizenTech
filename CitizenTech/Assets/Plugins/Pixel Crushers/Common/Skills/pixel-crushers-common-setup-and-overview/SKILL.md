@@ -4,7 +4,6 @@ description: "Use this skill whenever someone asks 'how do I install Pixel Crush
 metadata:
   asset: "Pixel Crushers Common"
   publisher: "Pixel Crushers"
-  asset-version: "1.10.73"
   skill-version: "1.0.0"
   unity: "2022.3+"
   render-pipelines: "Built-in, URP, HDRP"
@@ -65,9 +64,9 @@ public static bool IsPixelCrushersCommonInstalled()
 1. Open `Window > General > Console` and check for compiler errors referencing `PixelCrushers`.
 2. In the Editor menu, open `Tools > Pixel Crushers > Common > Text Table Editor`. It should open cleanly.
 3. Create a temporary Editor script and call `Debug.Log(IsPixelCrushersCommonInstalled())` using the snippet from **Prerequisites**.
-4. Open `Assets/Plugins/Pixel Crushers/Common/_README.txt` — the first lines state the version number.
+4. Verify that `Assets/Plugins/Pixel Crushers/Common/_README.txt` exists.
 
-**Expected result:** Console prints `True`; the Text Table Editor window opens; `_README.txt` confirms version `1.10.73` or later; no `CS0246` errors in Console.
+**Expected result:** Console prints `True`; the Text Table Editor window opens; `_README.txt` exists; no `CS0246` errors in Console.
 
 ---
 

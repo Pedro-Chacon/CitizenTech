@@ -4,7 +4,6 @@ description: "Use this skill whenever someone wants to write, build, or edit con
 metadata:
   asset: "Dialogue System for Unity"
   publisher: "Pixel Crushers"
-  asset-version: "2.2.73.2"
   skill-version: "1.2.0"
   unity: "2022.3+"
   render-pipelines: "Built-in, URP, HDRP"
@@ -40,7 +39,7 @@ Dialogue content lives in a **DialogueDatabase** ScriptableObject. Each database
 
 ## Prerequisites
 
-- Dialogue System for Unity 2.2.73.2 installed (see `dialogue-system-for-unity-setup-and-overview`)
+- Dialogue System for Unity installed (see `dialogue-system-for-unity-setup-and-overview`)
 - A Dialogue Manager GameObject in the scene (created via **Tools > Pixel Crushers > Dialogue System > Wizards > Dialogue Manager Wizard**)
 - The Dialogue Manager's **Initial Database** field must reference the DialogueDatabase asset you create
 

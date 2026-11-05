@@ -4,7 +4,6 @@ description: "Use this skill whenever someone wants to save or restore Dialogue 
 metadata:
   asset: "Dialogue System for Unity"
   publisher: "Pixel Crushers"
-  asset-version: "2.2.73.2"
   skill-version: "1.2.0"
   unity: "2022.3+"
   render-pipelines: "Built-in, URP, HDRP"

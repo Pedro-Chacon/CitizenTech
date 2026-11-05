@@ -1,5 +1,126 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8624902305186868465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639294755191446938
+  FileSizes:
+  - Name: Desktop
+    Value: 1524
+  Exists: 1
+--- !u!114 &-6456612755698167269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/button_click_01
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/button_click_01
+  Guid:
+    Data1: -152615895
+    Data2: 1252710421
+    Data3: -995779192
+    Data4: -456163791
+  Banks:
+  - {fileID: 2671434078894277458}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 275
+--- !u!114 &-2272081789997510139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/The Parting
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/The Parting
+  Guid:
+    Data1: 95977439
+    Data2: 1186364260
+    Data3: -611080779
+    Data4: 393079234
+  Banks:
+  - {fileID: 9143010120209593694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 183875
+--- !u!114 &-787013641699004038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639294755191476938
+  FileSizes:
+  - Name: Desktop
+    Value: 1214
+  Exists: 1
+--- !u!114 &-579981627026554077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/toggle_switch_03
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/toggle_switch_03
+  Guid:
+    Data1: -1394880781
+    Data2: 1215040835
+    Data3: 275014803
+    Data4: -1256480318
+  Banks:
+  - {fileID: 2671434078894277458}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 381
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,11 +133,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -787013641699004038}
+  - {fileID: 5153997865959126969}
+  - {fileID: -8624902305186868465}
+  - {fileID: 9143010120209593694}
+  - {fileID: 1445734032736539023}
+  - {fileID: 2671434078894277458}
+  EditorEvents:
+  - {fileID: -6456612755698167269}
+  - {fileID: 1110741005932981121}
+  - {fileID: -579981627026554077}
+  - {fileID: -2272081789997510139}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
+  MasterBanks:
+  - {fileID: -8624902305186868465}
+  StringsBanks:
+  - {fileID: -787013641699004038}
   cacheVersion: 131861
-  cacheTime: 0
-  SerializableEventsDict: []
+  cacheTime: 639294755402056274
+  SerializableEventsDict:
+  - key: event:/UI/button_click_01
+    index: 0
+  - key: event:/UI/buttonHover
+    index: 1
+  - key: event:/UI/toggle_switch_03
+    index: 2
+  - key: event:/Music/The Parting
+    index: 3
+--- !u!114 &1110741005932981121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/buttonHover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/buttonHover
+  Guid:
+    Data1: -431186631
+    Data2: 1138618122
+    Data3: 1097358982
+    Data4: 627780467
+  Banks:
+  - {fileID: 2671434078894277458}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 744
+--- !u!114 &1445734032736539023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 639294638683095564
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &2671434078894277458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 639294755192030567
+  FileSizes:
+  - Name: Desktop
+    Value: 18624
+  Exists: 1
+--- !u!114 &5153997865959126969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 639294638682835625
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &9143010120209593694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639294755402056274
+  FileSizes:
+  - Name: Desktop
+    Value: 2412384
+  Exists: 1
