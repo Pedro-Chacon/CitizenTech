@@ -1,107 +1,107 @@
 using MoreMountains.Tools;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    [Header("Reference Buttons")]
-    [SerializeField] GameObject painelOptions;
-    [SerializeField] GameObject painelCanvasMenu;
+    [Header("Panels")]
+    [SerializeField] JuicyPanel panelPause;
+    [SerializeField] JuicyPanel panelOptions;
 
+    [Header("Pause Buttons")]
     [SerializeField] Button buttonPlay;
     [SerializeField] Button buttonOptions;
     [SerializeField] Button buttonReset;
     [SerializeField] Button buttonExitGame;
 
-    //[SerializeField] Button buttonResetTutorial;
-
+    [Header("Options Buttons")]
     [SerializeField] Button buttonCloseOptions;
-
-    [Header("References")]
-
 
     private const string LoadingSceneName = "LoadingScreenCitizenTech";
     private const string GameSceneName = "ChaconGameScene";
+    private const string MainMenuSceneName = "MainMenuScene";
+
+    bool _paused;
+    bool _optionsOpen;
 
     private void Start()
     {
-        buttonPlay.onClick.AddListener(PlayGame);
-        buttonOptions.onClick.AddListener(AbrirOptions);
-        buttonReset.onClick.AddListener(ResetarScene);
-        buttonCloseOptions.onClick.AddListener(FecharOptions);
-        buttonExitGame.onClick.AddListener(IrParaMainMenu);
-        //buttonResetTutorial.onClick.AddListener(ResetarSceneTutorial);
+        Bind(buttonPlay, ResumeGame, nameof(buttonPlay));
+        Bind(buttonOptions, OpenOptions, nameof(buttonOptions));
+        Bind(buttonReset, ResetScene, nameof(buttonReset));
+        Bind(buttonExitGame, GoToMainMenu, nameof(buttonExitGame));
+        Bind(buttonCloseOptions, CloseOptions, nameof(buttonCloseOptions));
+
+        if (panelPause != null) panelPause.Hide(true);
+        if (panelOptions != null) panelOptions.Hide(true);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (painelOptions.activeSelf)
-            {
-                FecharOptions();
-                return;
-            }
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
 
-            if (painelCanvasMenu.activeSelf)
-                FecharMenuPause();
-            else
-                AbrirMenuPause();
-        }
+        if (!_paused) OpenPauseMenu();
+        else if (_optionsOpen) CloseOptions();
+        else ResumeGame();
     }
 
-
-    public void AbrirMenuPause()
+    public void OpenPauseMenu()
     {
-        painelOptions.SetActive(false);
-        painelCanvasMenu.SetActive(true);
+        _paused = true;
+        _optionsOpen = false;
         Time.timeScale = 0f;
+
+        if (panelOptions != null) panelOptions.Hide(true);
+        if (panelPause != null) panelPause.Show();
     }
 
-    public void FecharMenuPause()
+    public void ResumeGame()
     {
-        painelOptions.SetActive(false);
-        painelCanvasMenu.SetActive(false);
+        _paused = false;
+        _optionsOpen = false;
         Time.timeScale = 1f;
+
+        if (panelOptions != null) panelOptions.Hide();
+        if (panelPause != null) panelPause.Hide();
     }
 
-    void PlayGame()
+    public void OpenOptions()
     {
-        FecharMenuPause();
+        _optionsOpen = true;
+
+        if (panelOptions != null) panelOptions.Show();
     }
 
-    public void AbrirOptions()
+    public void CloseOptions()
     {
-        painelOptions.SetActive(true);
-        painelCanvasMenu.SetActive(false);
+        _optionsOpen = false;
+
+        if (panelOptions != null) panelOptions.Hide();
+
     }
 
-    public void ResetarScene()
+    public void ResetScene()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
         MMSceneLoadingManager.LoadScene(GameSceneName, LoadingSceneName);
         DialogueManager.StopAllConversations();
     }
 
-    /*
-    public void ResetarSceneTutorial()
+    public void GoToMainMenu()
     {
-        Time.timeScale = 1f; 
-        MMSceneLoadingManager.LoadScene(TutorialGameSceneName, LoadingSceneName);
-        DialogueManager.StopAllConversations();
-    }
-    */
-
-    public void FecharOptions()
-    {
-        painelOptions.SetActive(false);
-        painelCanvasMenu.SetActive(true);
+        Time.timeScale = 1f;
+        MMSceneLoadingManager.LoadScene(MainMenuSceneName, LoadingSceneName);
     }
 
-    public void IrParaMainMenu()
+    void Bind(Button button, UnityAction action, string label)
     {
-        Time.timeScale = 1f; 
-        MMSceneLoadingManager.LoadScene("MainMenuScene", LoadingSceneName);
+        if (button == null)
+        {
+            Debug.LogWarning($"[PauseMenuManager] Botão não atribuído no Inspector: {label}", this);
+            return;
+        }
+        button.onClick.AddListener(action);
     }
 }
