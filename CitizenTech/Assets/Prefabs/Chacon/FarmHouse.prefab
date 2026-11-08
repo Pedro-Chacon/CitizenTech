@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7851286881167693695}
   m_Layer: 0
-  m_Name: NewFarmHouse
+  m_Name: FarmHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb5a9cd9162e8da4ba430171917876f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.099
+      value: 0.113
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb5a9cd9162e8da4ba430171917876f7, type: 3}
       propertyPath: m_LocalPosition.y

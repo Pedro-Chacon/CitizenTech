@@ -38,9 +38,6 @@ public class VolumeSlider : MonoBehaviour
             case VolumeType.SFX:
                 volumeSlider.value = AudioManager.instance.SFXVolume;
                 break;
-            case VolumeType.RESTAURANTNOISE:
-                volumeSlider.value = AudioManager.instance.RestaurantNoiseVolume;
-                break;
             case VolumeType.UI:
                 volumeSlider.value = AudioManager.instance.UIVolume;
                 break;
@@ -68,11 +65,6 @@ public class VolumeSlider : MonoBehaviour
             case VolumeType.SFX:
                 AudioManager.instance.SFXVolume = volumeSlider.value;
                 PlayerPrefs.SetFloat("SFXVolume", volumeSlider.value);
-                break;
-
-            case VolumeType.RESTAURANTNOISE:
-                AudioManager.instance.RestaurantNoiseVolume = volumeSlider.value;
-                PlayerPrefs.SetFloat("RestaurantNoiseVolume", volumeSlider.value);
                 break;
 
             case VolumeType.UI:

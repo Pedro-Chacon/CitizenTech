@@ -13,9 +13,6 @@ public class AudioManager : MonoBehaviour
     public float musicVolume = 1;
     [Range(0, 1)]
 
-    public float RestaurantNoiseVolume = 1;
-    [Range(0, 1)]
-
     public float SFXVolume = 1;
     [Range(0, 1)]
 
@@ -30,12 +27,14 @@ public class AudioManager : MonoBehaviour
     [Header("Music Config")]
     [SerializeField] private StudioEventEmitter gameplayMusic;
     [SerializeField] private StudioEventEmitter resultsMusic;
-    private float restaurantNoiseMultiplier = 1f;
 
     [Header("UI Config")]
     [SerializeField] private StudioEventEmitter buttonUISound;
     [SerializeField] private StudioEventEmitter buttonConfirmUISound;
     [SerializeField] private StudioEventEmitter buttonUIHoverSound;
+
+    [Header("SFX Config")]
+    [SerializeField] private StudioEventEmitter objectPlacementSFX;
 
     public static AudioManager instance { get; private set; }
 
@@ -68,16 +67,14 @@ public class AudioManager : MonoBehaviour
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-        RestaurantNoiseVolume = PlayerPrefs.GetFloat("RestaurantNoiseVolume", 1f);
         UIVolume = PlayerPrefs.GetFloat("UIVolume", 1f);
     }
 
+    #region AUDIOS FUNÇÕES
     public void ShowResultsAudio()
     {
         gameplayMusic.Stop();
         resultsMusic.Play();
-
-        restaurantNoiseMultiplier = 0.25f;
     }
     public void PlayUIButtonSound()
     {
@@ -91,6 +88,14 @@ public class AudioManager : MonoBehaviour
     {
         buttonUIHoverSound.Play();
     }
+
+    public void ObjectPlacementSFX()
+    {
+        objectPlacementSFX.Play();
+    }
+
+    #endregion
+
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);    
