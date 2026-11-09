@@ -21,6 +21,9 @@ namespace PixelCrushers.DialogueSystem
         public class TransformEvent : UnityEvent<Transform> { }
 
         [System.Serializable]
+        public class DialogueEntryEvent : UnityEvent<DialogueEntry> { }
+
+        [System.Serializable]
         public class SubtitleEvent : UnityEvent<Subtitle> { }
 
         [System.Serializable]
@@ -40,6 +43,9 @@ namespace PixelCrushers.DialogueSystem
 
             [Tooltip("Invoked when a conversation is cancelled. Transform is primary actor (typically player).")]
             public TransformEvent onConversationCancelled = new TransformEvent();
+
+            [Tooltip("Invoked just before a line is delivered but before OnConversationLine. Passes Subtitle.")]
+            public DialogueEntryEvent onPrepareConversationLine = new DialogueEntryEvent();
 
             [Tooltip("Invoked just before a line is delivered but before OnConversationLine. Passes Subtitle.")]
             public SubtitleEvent onConversationLineEarly = new SubtitleEvent();
@@ -153,6 +159,11 @@ namespace PixelCrushers.DialogueSystem
         public void OnConversationCancelled(Transform actor)
         {
             conversationEvents.onConversationCancelled.Invoke(actor);
+        }
+
+        public void OnPrepareConversationLine(DialogueEntry dialogueEntry)
+        {
+            conversationEvents.onPrepareConversationLine.Invoke(dialogueEntry);
         }
 
         public void OnConversationLineEarly(Subtitle subtitle)

@@ -466,38 +466,12 @@ namespace PixelCrushers.DialogueSystem
         }
 
         /// <summary>
-        /// Starts a conversation, which also broadcasts an OnConversationStart message to the 
-        /// actor and conversant. Your scripts can listen for OnConversationStart to do anything
-        /// necessary at the beginning of a conversation, such as pausing other gameplay or 
-        /// temporarily disabling player control. See the Feature Demo scene, which uses the
-        /// SetEnabledOnDialogueEvent component to disable player control during conversations.
+        /// Add a DialogueSystemTrigger to the conversation queue. Called by DialogueSystemTrigger
+        /// when a conversation must be queued because another is active.
         /// </summary>
-        /// <param name='title'>
-        /// The title of the conversation to look up in the master database.
-        /// </param>
-        /// <param name='actor'>
-        /// The transform of the actor (primary participant). The sequencer uses this to direct 
-        /// camera angles and perform other actions. In PC-NPC conversations, the actor is usually
-        /// the PC.
-        /// </param>
-        /// <param name='conversant'>
-        /// The transform of the conversant (the other participant). The sequencer uses this to 
-        /// direct camera angles and perform other actions. In PC-NPC conversations, the conversant
-        /// is usually the NPC.
-        /// </param>
-        /// <param name='initialDialogueEntryID'> 
-        /// The initial dialogue entry ID, or -1 to start from the beginning.
-        /// </param>
-        /// <param name="overrideDialogueUI">Use this dialogue UI.</param>
-        /// <param name="actorOverrides">Other actors to override for this active conversation.</param>
-        /// <example>
-        /// StartConversation("Shopkeeper Conversation", player, shopkeeper, 7, otherUI, otherActorOverrides);
-        /// </example>
-        public static void StartConversation(string title, Transform actor, Transform conversant,
-            int initialDialogueEntryID, IDialogueUI overrideDialogueUI, List<ActorOverride> actorOverrides)
+        public static void QueueDialogueSystemTriggerConversation(DialogueSystemTrigger dialogueSystemTrigger, Transform actor)
         {
-            if (!hasInstance) return;
-            instance.StartConversation(title, actor, conversant, initialDialogueEntryID, overrideDialogueUI, actorOverrides);
+            if (hasInstance) instance.QueueDialogueSystemTriggerConversation(dialogueSystemTrigger, actor);
         }
 
         /// <summary>
@@ -522,6 +496,50 @@ namespace PixelCrushers.DialogueSystem
         /// </param>
         /// <param name='initialDialogueEntryID'> 
         /// The initial dialogue entry ID, or -1 to start from the beginning.
+        /// </param>
+        /// <param name="overrideDialogueUI">Use this dialogue UI.</param>
+        /// <param name="actorOverrides">Other actors to override for this active conversation.</param>
+        /// <param name="queueIfAnotherActive">
+        /// If another conversation is active and simultaneous conversations aren't allowed,
+        /// queue this conversation to play after active conversations have ended.
+        /// </param>
+        /// <example>
+        /// StartConversation("Shopkeeper Conversation", player, shopkeeper, 7, otherUI, otherActorOverrides);
+        /// </example>
+        public static void StartConversation(string title, Transform actor, Transform conversant,
+            int initialDialogueEntryID, IDialogueUI overrideDialogueUI, List<ActorOverride> actorOverrides,
+            bool queueIfAnotherActive = false)
+        {
+            if (!hasInstance) return;
+            instance.StartConversation(title, actor, conversant, initialDialogueEntryID, overrideDialogueUI, 
+                actorOverrides, queueIfAnotherActive);
+        }
+
+        /// <summary>
+        /// Starts a conversation, which also broadcasts an OnConversationStart message to the 
+        /// actor and conversant. Your scripts can listen for OnConversationStart to do anything
+        /// necessary at the beginning of a conversation, such as pausing other gameplay or 
+        /// temporarily disabling player control. See the Feature Demo scene, which uses the
+        /// SetEnabledOnDialogueEvent component to disable player control during conversations.
+        /// </summary>
+        /// <param name='title'>
+        /// The title of the conversation to look up in the master database.
+        /// </param>
+        /// <param name='actor'>
+        /// The transform of the actor (primary participant). The sequencer uses this to direct 
+        /// camera angles and perform other actions. In PC-NPC conversations, the actor is usually
+        /// the PC.
+        /// </param>
+        /// <param name='conversant'>
+        /// The transform of the conversant (the other participant). The sequencer uses this to 
+        /// direct camera angles and perform other actions. In PC-NPC conversations, the conversant
+        /// is usually the NPC.
+        /// </param>
+        /// <param name='initialDialogueEntryID'> 
+        /// The initial dialogue entry ID, or -1 to start from the beginning.
+        /// </param>
+        /// <param name="overrideDialogueUI">
+        /// If not null, use this dialogue UI for this conversation.
         /// </param>
         /// <example>
         /// StartConversation("Shopkeeper Conversation", player, shopkeeper, 7, otherUI);
@@ -640,7 +658,7 @@ namespace PixelCrushers.DialogueSystem
         }
 
         /// <summary>
-        /// Stops all current conversations immediately.
+        /// Stops all current conversations immediately.  Also clears any queued conversations.
         /// </summary>
         public static void StopAllConversations()
         {

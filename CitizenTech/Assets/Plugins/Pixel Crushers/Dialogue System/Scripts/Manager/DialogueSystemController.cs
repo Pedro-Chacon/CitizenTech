@@ -237,6 +237,7 @@ namespace PixelCrushers.DialogueSystem
         private bool m_started = false;
         private DialogueDebug.DebugLevel m_lastDebugLevelSet = DialogueDebug.DebugLevel.None;
         private List<ActiveConversationRecord> m_activeConversations = new List<ActiveConversationRecord>();
+        private Queue<QueuedConversation> m_queuedConversations = new Queue<QueuedConversation>();
         private Queue<string> alertsQueuedForConversationEnd = new Queue<string>();
         private UILocalizationManager m_uiLocalizationManager = null;
         private bool m_calledRandomizeNextEntry = false;
@@ -1086,26 +1087,45 @@ namespace PixelCrushers.DialogueSystem
         /// Dialogue UI to use instead of default dialogue UI.
         /// </param>
         /// <param name="actorOverrides">Other actors to override.</param>
+        /// <param name="queueIfAnotherActive">
+        /// If another conversation is active and simultaneous conversations aren't allowed,
+        /// queue this conversation to play after active conversations have ended.
+        /// </param>
         /// <example>
         /// Example:
         /// <code>StartConversation("Shopkeeper Conversation", player, shopkeeper, 8, specialDialogueUI, actorOverrides);</code>
         /// </example>
         public void StartConversation(string title, Transform actor, Transform conversant,
-            int initialDialogueEntryID, IDialogueUI overrideDialogueUI, List<ActorOverride> actorOverrides)
+            int initialDialogueEntryID, IDialogueUI overrideDialogueUI, List<ActorOverride> actorOverrides,
+            bool queueIfAnotherActive = false)
         {
             if (warmupCoroutine != null)
             {
                 InterruptExtraWarmup();
             }
-            if (isConversationActive && !allowSimultaneousConversations && interruptActiveConversations)
-            {
-                StopConversation();
-            }
+
             if (isConversationActive && !allowSimultaneousConversations)
             {
-                if (DialogueDebug.logWarnings) Debug.LogWarning(string.Format("{0}: Another conversation is already active. Not starting '{1}'.", new System.Object[] { DialogueDebug.Prefix, title }));
+                if (queueIfAnotherActive)
+                {
+                    if (DialogueDebug.logInfo) Debug.Log($"Dialogue System: '{lastConversationStarted}' is active. Queueing '{title}' to start when active conversations have ended.");
+                    m_queuedConversations.Enqueue(new QueuedConversation(title, actor, conversant, 
+                        initialDialogueEntryID, overrideDialogueUI, actorOverrides));
+                    return; // Early exit.
+                }
+                else if (interruptActiveConversations)
+                {
+                    if (DialogueDebug.logInfo) Debug.Log($"Dialogue System: Interrupting '{lastConversationStarted}' to start '{title}'.");
+                    StopConversation();
+                }
+                else
+                {
+                    if (DialogueDebug.logWarnings) Debug.LogWarning(string.Format("{0}: Another conversation is already active. Not starting '{1}'.", new System.Object[] { DialogueDebug.Prefix, title }));
+                    return; // Early exit.
+                }
             }
-            else if (dialogueUI == null)
+
+            if (dialogueUI == null)
             {
                 if (DialogueDebug.logErrors) Debug.LogError(string.Format("{0}: No Dialogue UI is assigned. Can't start conversation '{1}'.", new System.Object[] { DialogueDebug.Prefix, title }));
             }
@@ -1339,16 +1359,16 @@ namespace PixelCrushers.DialogueSystem
         }
 
         /// <summary>
-        /// Stops all current conversations immediately.
+        /// Stops all current conversations immediately. Also clears any queued conversations.
         /// </summary>
         public void StopAllConversations()
         {
             stoppingAllConversations?.Invoke();
+            m_queuedConversations.Clear();
             for (int i = DialogueManager.instance.activeConversations.Count - 1; i >= 0; i--)
             {
                 DialogueManager.instance.activeConversations[i].conversationController.Close();
             }
-
         }
 
         /// <summary>
@@ -1673,6 +1693,7 @@ namespace PixelCrushers.DialogueSystem
 
             // End of conversation checks:
             m_luaWatchers.NotifyObservers(LuaWatchFrequency.EndOfConversation);
+            CheckConversationQueue();
             CheckAlerts();
         }
 
@@ -1706,6 +1727,33 @@ namespace PixelCrushers.DialogueSystem
             while (alertsQueuedForConversationEnd.Count > 0 && safeguard++ < 100)
             {
                 ShowAlert(alertsQueuedForConversationEnd.Dequeue());
+            }
+        }
+
+        /// <summary>
+        /// Add a DialogueSystemTrigger to the conversation queue. Called by DialogueSystemTrigger
+        /// when a conversation must be queued because another is active.
+        /// </summary>
+        public void QueueDialogueSystemTriggerConversation(DialogueSystemTrigger dialogueSystemTrigger, Transform actor)
+        {
+            m_queuedConversations.Enqueue(new QueuedConversation(dialogueSystemTrigger, actor));
+        }
+
+        private void CheckConversationQueue()
+        {
+            if (isConversationActive) return;
+            if (m_queuedConversations.Count == 0) return;
+            var queuedConversation = m_queuedConversations.Dequeue();
+            if (queuedConversation.DialogueSystemTrigger != null)
+            {
+                // Dialogue System Trigger is queued, so run its StartQueuedConversation method:
+                queuedConversation.DialogueSystemTrigger.StartQueuedConversation(queuedConversation.Actor);
+            }
+            else
+            {
+                // Start conversation from C#:
+                StartConversation(queuedConversation.ConversationTitle, queuedConversation.Actor, queuedConversation.Conversant,
+                    queuedConversation.InitialDialogueEntryID, queuedConversation.OverrideDialogueUI, queuedConversation.ActorOverrides);
             }
         }
 

@@ -420,8 +420,6 @@ namespace PixelCrushers.DialogueSystem
         protected ConversationState cachedState = null;
         protected BarkGroupMember barkGroupMember = null;
         protected IBarkUI barkUI = null;
-        protected bool isConversationQueued = false;
-        protected Transform queuedActor = null;
         protected float earliestTimeToAllowTriggerExit = 0;
         protected Coroutine monitorDistanceCoroutine = null;
         protected bool wasCursorVisible;
@@ -565,16 +563,6 @@ namespace PixelCrushers.DialogueSystem
                     Time.timeScale = preConversationTimeScale;
                 }
                 frameConversationEnded = Time.frameCount;
-            }
-        }
-
-        protected virtual void OnConversationEndCheckQueue(Transform actor)
-        {
-            if (isConversationQueued && !DialogueManager.isConversationActive)
-            {
-                DialogueManager.instance.conversationEnded -= OnConversationEndAnywhere;
-                isConversationQueued = false;
-                DoConversationAction(queuedActor);
             }
         }
 
@@ -1037,6 +1025,11 @@ namespace PixelCrushers.DialogueSystem
 
         #region Conversation Action
 
+        public void StartQueuedConversation(Transform actor)
+        {
+            DoConversationAction(actor);
+        }
+
         protected virtual void DoConversationAction(Transform actor)
         {
             if (string.IsNullOrEmpty(conversation)) return;
@@ -1047,9 +1040,7 @@ namespace PixelCrushers.DialogueSystem
             }
             if (queue && !DialogueManager.allowSimultaneousConversations && DialogueManager.isConversationActive)
             {
-                isConversationQueued = true;
-                queuedActor = actor;
-                DialogueManager.instance.conversationEnded += OnConversationEndCheckQueue;
+                DialogueManager.QueueDialogueSystemTriggerConversation(this, actor);
                 if (DialogueDebug.logInfo) Debug.Log("Dialogue System: Conversation triggered on " + name + " is queued to play as soon as the current conversation ends.", this);
             }
             else if (exclusive && DialogueManager.isConversationActive)

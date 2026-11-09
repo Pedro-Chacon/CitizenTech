@@ -1113,10 +1113,11 @@ namespace PixelCrushers.DialogueSystem.DialogueEditor
                         DuplicateMultipleEntries();
                     }
                 }
-                else if (Event.current.keyCode == KeyCode.N && (Event.current.command || Event.current.control) && Event.current.alt)
+                else if ((Event.current.keyCode == KeyCode.N || Event.current.keyCode == KeyCode.A) && 
+                         (Event.current.command || Event.current.control) && Event.current.alt)
                 {
                     wasShiftDown = Event.current.shift;
-                    // Ctrl/Cmd+Alt+N (New) key:
+                    // Ctrl/Cmd+Alt+N (New) key or Ctrl/Cmd+Alt+A (Add) key:
                     if (currentEntry != null && !showQuickDialogueTextEntry)
                     {
                         AddChildCallback(currentEntry);
