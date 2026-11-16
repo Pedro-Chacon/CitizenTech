@@ -9358,7 +9358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!225 &1125604436
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9407,6 +9407,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2039650434}
     m_Modifications:
+    - target: {fileID: 1127750691054867683, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127750691054867683, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -426394835, guid: 00b80571ba49ed644ac0ee4dce8f1fb6, type: 3}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4848513426964134208, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_Name
       value: Button Move
@@ -9495,8 +9519,13 @@ PrefabInstance:
       propertyPath: m_text
       value: Mover
       objectReference: {fileID: 0}
+    - target: {fileID: 6390891636625705476, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -426394835, guid: 00b80571ba49ed644ac0ee4dce8f1fb6, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5784814185852620720, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
@@ -17878,6 +17907,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2039650434}
     m_Modifications:
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00045776367
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4848513426964134208, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_Name
       value: Button Upgrade
@@ -17966,8 +18011,13 @@ PrefabInstance:
       propertyPath: m_text
       value: Upgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 6390891636625705476, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2130569069, guid: 0f7098d642ce5d94b829fbd0ceae3b7e, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5784814185852620720, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
@@ -20311,6 +20361,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2039650434}
     m_Modifications:
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00006866455
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000011444092
+      objectReference: {fileID: 0}
     - target: {fileID: 4848513426964134208, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_Name
       value: Button Delete
@@ -20403,8 +20469,13 @@ PrefabInstance:
       propertyPath: m_text
       value: Deletar
       objectReference: {fileID: 0}
+    - target: {fileID: 6390891636625705476, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1151451863, guid: be3368b26e4bbaa4e8508fabd4cc2997, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5784814185852620720, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}

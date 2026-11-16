@@ -9918,6 +9918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TerraTecnologica
       objectReference: {fileID: 0}
+    - target: {fileID: 2872889978807927759, guid: f4830904cfb947243b622a4acb17f5b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3212577926647126389, guid: f4830904cfb947243b622a4acb17f5b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3196267
