@@ -25,3 +25,11 @@ MonoBehaviour:
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 2, y: 1}
     <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: 9c5252b7404b5534ba19de5323c67a3c, type: 3}
+  - <Name>k__BackingField: Silo
+    <ID>k__BackingField: 4
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: be91fd337f641fa468abdda43f966601, type: 3}
+  - <Name>k__BackingField: Forno
+    <ID>k__BackingField: 5
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: 10da80b2c95aa2d40930d19c7fd5a068, type: 3}

@@ -8,6 +8,8 @@ public class TurnManager : MonoBehaviour
 
     [SerializeField] private int startingDay = 1;
 
+    [SerializeField] private DayTransition dayTransition;
+
     public int CurrentDay { get; private set; }
     public bool IsBusy { get; private set; }
 
@@ -67,15 +69,19 @@ public class TurnManager : MonoBehaviour
                 yield break; // fica ocupado de propósito: o painel de resultado assume
         }
 
-        // 3) TODO: transição pra noite e texto "Dia X" entram aqui, por exemplo:
-        //    yield return dayTransition.PlayNight(CurrentDay + 1);
-        yield return null;
+        // 3) Transição pra noite + texto "Dia X".
+        if (dayTransition != null)
+            yield return dayTransition.PlayNight(CurrentDay + 1);
+        else
+            yield return null;
 
         // 4) O novo dia começa.
         CurrentDay++;
         OnDayStarted?.Invoke(CurrentDay);
 
-        // 5) TODO: transição de volta pro dia entra aqui.
+        // 5) Volta pro dia.
+        if (dayTransition != null)
+            yield return dayTransition.PlayDay();
 
         SetBusy(false);
     }

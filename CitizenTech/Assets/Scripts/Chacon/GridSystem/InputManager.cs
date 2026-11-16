@@ -12,14 +12,21 @@ public class InputManager : MonoBehaviour
 
     public event Action OnClicked, OnExit;
 
+    private Vector3 rightClickStart;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
             OnClicked?.Invoke();
         if(Input.GetKeyDown(KeyCode.Escape))
             OnExit?.Invoke();
+
         if (Input.GetMouseButtonDown(1))
+            rightClickStart = Input.mousePosition;
+
+        if (Input.GetMouseButtonUp(1) && (Input.mousePosition - rightClickStart).sqrMagnitude < 36f)
             OnExit?.Invoke();
+
     }
 
     public bool IsPonterOverUI()
