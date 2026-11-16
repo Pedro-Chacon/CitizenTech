@@ -13,7 +13,8 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private LayerMask installationLayerMask;
 
     [SerializeField] private SellConfirmationPanel sellPanel;
-
+    [SerializeField] private ExportPanel exportPanel;
+    [SerializeField] private InventoryPanel inventoryPanel;
     [SerializeField] private UpgradePanel upgradePanel;
 
     private void Start()
@@ -41,7 +42,14 @@ public class SelectionManager : MonoBehaviour
 
         if (sellPanel != null && sellPanel.IsOpen)
             return;
+        if (exportPanel != null && exportPanel.IsOpen)
+            return;
 
+        if (inventoryPanel != null && inventoryPanel.IsOpen)
+            return;
+
+        if (OvenPanel.instance != null && OvenPanel.instance.IsOpen)
+            return;
         if (upgradePanel != null && upgradePanel.IsOpen)
             return;
 

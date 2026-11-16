@@ -23,14 +23,24 @@ public class PreviewSystem : MonoBehaviour
         cellIndicatorRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
 
-    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
+    public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size,
+        Installation visualSource = null)
     {
+
         previewObject = Instantiate(prefab);
 
         // A cópia é só visual: sem a lógica da instalação (ela não assina o evento de dia).
+
         foreach (Installation installation in previewObject.GetComponentsInChildren<Installation>())
             installation.enabled = false;
 
+        // "Mover": a cópia mostra o mesmo nível (cavalo, carro...) do objeto real.
+        if (visualSource != null)
+        {
+            Installation ghostInstallation = previewObject.GetComponent<Installation>();
+            if (ghostInstallation != null)
+                ghostInstallation.CopyLevelFrom(visualSource);
+        }
         previewOffset = Vector3.zero;
         previewRotation = Quaternion.identity;
 
@@ -61,7 +71,7 @@ public class PreviewSystem : MonoBehaviour
 
     private void PreparePreview(GameObject previewObject)
     {
-        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>(true);
         foreach (Renderer renderer in renderers)
         {
             Material[] materials = renderer.materials;

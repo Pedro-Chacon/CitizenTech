@@ -104,7 +104,12 @@ public class Installation : MonoBehaviour
             return 0;
         return Mathf.FloorToInt(TotalSpent * data.refundPercent);
     }
-
+    // Usado pelo fantasma do "mover": copia o nível pra cópia mostrar o visual certo (ex.: carro).
+    public void CopyLevelFrom(Installation source)
+    {
+        CurrentLevel = source.CurrentLevel;
+        OnUpgraded(CurrentLevel);
+    }
     // Dispara a UI de novo (útil pras subclasses quando o estado delas muda).
     protected void NotifyChanged()
     {

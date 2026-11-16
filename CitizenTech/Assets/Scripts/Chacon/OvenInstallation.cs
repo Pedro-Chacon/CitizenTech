@@ -23,8 +23,10 @@ public class OvenInstallation : Installation
     public ProductSO InputProduct => OvenData != null ? OvenData.inputProduct : null;
     public ProductSO OutputProduct => OvenData != null ? OvenData.outputProduct : null;
     public int InputAmount => OvenData != null ? OvenData.inputAmount : 0;
-    public int OutputAmount => OvenData != null ? OvenData.outputAmount : 0;
-    public int BakeDays => OvenData != null ? OvenData.bakeDays : 1;
+    public int OutputAmount => OvenData != null
+        ? Mathf.Max(1, OvenData.outputAmount + GetUpgradeBonus(u => u.ovenOutputChange)) : 0;
+    public int BakeDays => OvenData != null
+        ? Mathf.Max(1, OvenData.bakeDays + GetUpgradeBonus(u => u.bakeDaysChange)) : 1;
 
     // Bolha extra do menu: abrir a janela da fornada.
     public override bool HasExtraAction => true;
@@ -84,7 +86,7 @@ public class OvenInstallation : Installation
             return false;
 
         State = OvenState.Baking;
-        DaysRemaining = OvenData.bakeDays;
+        DaysRemaining = BakeDays;
         UpdateVisual();
         NotifyChanged();
         return true;
@@ -95,7 +97,7 @@ public class OvenInstallation : Installation
         if (State != OvenState.Ready || OvenData == null || InventoryManager.instance == null)
             return false;
 
-        InventoryManager.instance.Add(OvenData.outputProduct, OvenData.outputAmount);
+        InventoryManager.instance.Add(OvenData.outputProduct, OutputAmount);
 
         State = OvenState.Idle;
         UpdateVisual();

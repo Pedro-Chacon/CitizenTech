@@ -63,6 +63,10 @@ public class UpgradePanel : MonoBehaviour
 
         Rebuild();
         panel.Show();
+
+        // Garante que os cards ocupem o espaço certo assim que a janela aparece.
+        if (cardsContainer is RectTransform rect)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
     }
 
     public void Close()
@@ -84,14 +88,31 @@ public class UpgradePanel : MonoBehaviour
         }
         cards.Clear();
 
+        if (cardPrefab == null || cardsContainer == null)
+        {
+            Debug.LogError(
+                $"[UpgradePanel] Falta ligar no Inspector: " +
+                $"Card Prefab = {(cardPrefab != null ? "ok" : "VAZIO")}, " +
+                $"Cards Container = {(cardsContainer != null ? "ok" : "VAZIO")}.", this);
+            return;
+        }
+
         List<UpgradeLevelData> upgrades = target.Data.upgrades;
         for (int i = 0; i < upgrades.Count; i++)
         {
             UpgradeCardUI card = Instantiate(cardPrefab, cardsContainer);
+
+            // Se o prefab foi salvo desativado, o card nasceria invisível.
+            card.gameObject.SetActive(true);
+
             int index = i; // cópia pro lambda
             card.Setup(upgrades[i], () => Buy(index));
             cards.Add(card);
         }
+
+        Debug.Log(
+            $"[UpgradePanel] {target.name}: {upgrades.Count} upgrade(s) no Data, " +
+            $"{cards.Count} card(s) criados dentro de '{cardsContainer.name}'.", this);
 
         Refresh();
     }

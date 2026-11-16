@@ -73,7 +73,7 @@ public class MovingState : IBuildingState
         data.RemoveObjectAt(originalAnchor);
         installation.gameObject.SetActive(false);
 
-        previewSystem.StartShowingPlacementPreview(entry.Prefab, baseSize);
+        previewSystem.StartShowingPlacementPreview(entry.Prefab, baseSize, installation);
         previewSystem.SetRotation(rotation, baseSize, grid.cellSize);
         previewSystem.UpdatePosition(grid.CellToWorld(originalAnchor), true);
 
@@ -96,8 +96,9 @@ public class MovingState : IBuildingState
         moved = true;
 
         if (AudioManager.instance != null)
-          //  AudioManager.instance.ObjectPlacementSFX();
-
+        {
+            //  AudioManager.instance.ObjectPlacementSFX();
+        }
         onFinished?.Invoke(); // o PlacementSystem encerra o estado (e chama EndState)
     }
 

@@ -62,7 +62,7 @@ public class FarmInstallation : Installation
         if (State != PlantationState.Ready || InventoryManager.instance == null || PlantationData == null)
             return false;
 
-        InventoryManager.instance.Add(PlantationData.product, PlantationData.yieldPerHarvest);
+      
         InventoryManager.instance.Add(PlantationData.product, YieldPerHarvest);
 
         State = PlantationState.Idle;

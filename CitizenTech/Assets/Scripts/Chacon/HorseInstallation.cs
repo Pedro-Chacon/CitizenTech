@@ -15,6 +15,7 @@ public class HorseInstallation : Installation
     [SerializeField] private Sprite extraActionIcon;
 
     [Header("Visuais por nível (cavalo, carroça, carro...), em ordem")]
+    [Tooltip("Têm que ser FILHOS deste objeto na Hierarchy. Nível 0 = primeiro item, nível 1 = segundo...")]
     [SerializeField] private GameObject[] levelVisuals;
 
     public HorseState State { get; private set; } = HorseState.Idle;
@@ -22,6 +23,7 @@ public class HorseInstallation : Installation
     public int PendingProfit { get; private set; }
 
     private HorseDataSO HorseData => data as HorseDataSO;
+
     // Dias de viagem no nível atual (os upgrades encurtam).
     public int TripDays => HorseData == null
         ? 1
@@ -134,7 +136,7 @@ public class HorseInstallation : Installation
 
     protected override void OnUpgraded(int newLevel)
     {
-        UpdateVisual(); // troca cavalo -> carroça -> carro
+        UpdateVisual(); // troca cavalo+carroça -> carro
     }
 
     private void UpdateVisual()
@@ -147,8 +149,22 @@ public class HorseInstallation : Installation
 
         for (int i = 0; i < levelVisuals.Length; i++)
         {
-            if (levelVisuals[i] != null)
-                levelVisuals[i].SetActive(i == visible && !away);
+            GameObject visual = levelVisuals[i];
+            if (visual == null)
+                continue;
+
+            // Proteção: o visual TEM que ser um filho deste objeto. Se fosse o próprio objeto,
+            // desativá-lo faria o cavalo inteiro sumir; se fosse um prefab da pasta Project,
+            // nada apareceria na cena.
+            if (visual == gameObject || !visual.transform.IsChildOf(transform))
+            {
+                Debug.LogError(
+                    $"[{name}] Level Visuals [{i}] ('{visual.name}') precisa ser um FILHO deste objeto na Hierarchy " +
+                    "(não o próprio objeto, nem um prefab da pasta Project).", this);
+                continue;
+            }
+
+            visual.SetActive(i == visible && !away);
         }
     }
 

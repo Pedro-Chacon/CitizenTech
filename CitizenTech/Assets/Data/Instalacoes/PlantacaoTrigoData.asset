@@ -16,4 +16,13 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f7876974a1b60ed4ca3dfd37f229386f, type: 3}
   price: 50
   refundPercent: 0.5
-  upgrades: []
+  upgrades:
+  - displayName: Plantacao Trigo com Irrigador
+    image: {fileID: 21300000, guid: c469889db0eea1a459df9473c96b26fb, type: 3}
+    description: 
+    cost: 50
+    growthDaysChange: -1
+    yieldChange: 0
+    tripDaysChange: 0
+    bakeDaysChange: 0
+    ovenOutputChange: 0
