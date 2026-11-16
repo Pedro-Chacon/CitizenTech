@@ -96,7 +96,7 @@ public class MovingState : IBuildingState
         moved = true;
 
         if (AudioManager.instance != null)
-            AudioManager.instance.ObjectPlacementSFX();
+          //  AudioManager.instance.ObjectPlacementSFX();
 
         onFinished?.Invoke(); // o PlacementSystem encerra o estado (e chama EndState)
     }

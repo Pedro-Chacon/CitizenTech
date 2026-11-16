@@ -22,18 +22,10 @@ public class HorseInstallation : Installation
     public int PendingProfit { get; private set; }
 
     private HorseDataSO HorseData => data as HorseDataSO;
-
-    // Dias de viagem no nível atual (o upgrade deixa mais curto).
-    public int TripDays
-    {
-        get
-        {
-            if (HorseData == null || HorseData.tripDaysPerLevel.Count == 0)
-                return 1;
-            int index = Mathf.Min(CurrentLevel, HorseData.tripDaysPerLevel.Count - 1);
-            return Mathf.Max(1, HorseData.tripDaysPerLevel[index]);
-        }
-    }
+    // Dias de viagem no nível atual (os upgrades encurtam).
+    public int TripDays => HorseData == null
+        ? 1
+        : Mathf.Max(1, HorseData.baseTripDays + GetUpgradeBonus(u => u.tripDaysChange));
 
     // Fora da fazenda, não dá pra interagir.
     public override bool CanMove => State != HorseState.Away;

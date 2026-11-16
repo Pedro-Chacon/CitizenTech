@@ -31,6 +31,15 @@ public class OvenInstallation : Installation
     public override bool CanDoExtraAction => State == OvenState.Idle;
     public override Sprite ExtraActionIcon => extraActionIcon;
 
+
+
+    
+    /*
+    public int OutputAmount => OvenData != null
+    ? Mathf.Max(1, OvenData.outputAmount + GetUpgradeBonus(u => u.ovenOutputChange)) : 0;
+    public int BakeDays => OvenData != null
+        ? Mathf.Max(1, OvenData.bakeDays + GetUpgradeBonus(u => u.bakeDaysChange)) : 1;
+    */
     // Parado só conta no aviso de "passar o dia" se dava pra assar (tem ingredientes).
     public override bool IsIdle
     {

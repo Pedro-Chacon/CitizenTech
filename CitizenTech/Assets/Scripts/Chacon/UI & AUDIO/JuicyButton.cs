@@ -57,10 +57,10 @@ public class JuicyButton : MonoBehaviour,
         switch (clickSound)
         {
             case ClickSound.Normal:
-                AudioManager.instance.PlayUIButtonSound();
+           //     AudioManager.instance.PlayUIButtonSound();
                 break;
             case ClickSound.Confirm:
-                AudioManager.instance.PlayUIButtonConfirmSound();
+             //   AudioManager.instance.PlayUIButtonConfirmSound();
                 break;
         }
     }
@@ -82,7 +82,9 @@ public class JuicyButton : MonoBehaviour,
         if (hoverIn != null) hoverIn.PlayFeedbacks();
 
         if (playHoverSound && AudioManager.instance != null)
-            AudioManager.instance.PlayUIButtonHoverSound();
+        {
+            //  AudioManager.instance.PlayUIButtonHoverSound();
+        }
     }
 
     public void OnPointerExit(PointerEventData e)

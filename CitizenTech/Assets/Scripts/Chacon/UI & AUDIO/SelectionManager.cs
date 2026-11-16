@@ -14,6 +14,8 @@ public class SelectionManager : MonoBehaviour
 
     [SerializeField] private SellConfirmationPanel sellPanel;
 
+    [SerializeField] private UpgradePanel upgradePanel;
+
     private void Start()
     {
         if (sceneCamera == null)
@@ -38,6 +40,9 @@ public class SelectionManager : MonoBehaviour
             return;
 
         if (sellPanel != null && sellPanel.IsOpen)
+            return;
+
+        if (upgradePanel != null && upgradePanel.IsOpen)
             return;
 
         // Pausado ou com o dia passando: sem interação.

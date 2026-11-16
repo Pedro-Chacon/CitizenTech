@@ -85,6 +85,18 @@ public class Installation : MonoBehaviour
         return true;
     }
 
+    // Soma um efeito de todos os upgrades JÁ comprados.
+    public int GetUpgradeBonus(Func<UpgradeLevelData, int> selector)
+    {
+        if (data == null)
+            return 0;
+
+        int total = 0;
+        for (int i = 0; i < CurrentLevel && i < data.upgrades.Count; i++)
+            total += selector(data.upgrades[i]);
+        return total;
+    }
+
     // Mesmo valor que a janela de confirmação mostra e que o jogador recebe.
     public int GetSellValue()
     {

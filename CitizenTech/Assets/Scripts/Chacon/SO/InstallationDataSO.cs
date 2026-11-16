@@ -25,7 +25,29 @@ public class UpgradeLevelData
     [TextArea] public string description;
     [Min(0)] public int cost = 100;
 
-    // O EFEITO do upgrade (rendimento, redução de turnos...) é definido pelo game designer.
-    // Adicione os campos dele aqui (ex.: public float yieldMultiplier = 1f;)
-    // e aplique em Installation.OnUpgraded / nas subclasses.
+    [Header("Efeitos (somam ao valor base; deixe 0 se não se aplica)")]
+    [Tooltip("Plantação: dias a mais/menos pra crescer. Ex.: -1")]
+    public int growthDaysChange;
+    [Tooltip("Plantação: unidades a mais/menos por colheita. Ex.: +3")]
+    public int yieldChange;
+    [Tooltip("Cavalo: dias a mais/menos de viagem. Ex.: -1")]
+    public int tripDaysChange;
+    [Tooltip("Forno: dias a mais/menos pra assar. Ex.: -1")]
+    public int bakeDaysChange;
+    [Tooltip("Forno: unidades a mais/menos por fornada. Ex.: +2")]
+    public int ovenOutputChange;
+
+    // Texto automático dos efeitos, mostrado no card.
+    public string GetEffectSummary()
+    {
+        List<string> lines = new();
+        if (growthDaysChange != 0) lines.Add($"Crescimento: {Signed(growthDaysChange)} dia(s)");
+        if (yieldChange != 0) lines.Add($"Colheita: {Signed(yieldChange)}");
+        if (tripDaysChange != 0) lines.Add($"Viagem: {Signed(tripDaysChange)} dia(s)");
+        if (bakeDaysChange != 0) lines.Add($"Assado: {Signed(bakeDaysChange)} dia(s)");
+        if (ovenOutputChange != 0) lines.Add($"Produção: {Signed(ovenOutputChange)}");
+        return string.Join("\n", lines);
+    }
+
+    private static string Signed(int value) => value > 0 ? $"+{value}" : value.ToString();
 }

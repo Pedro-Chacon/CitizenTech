@@ -74,7 +74,9 @@ public class PlacementState : IBuildingState
         }
 
         if (AudioManager.instance != null)
-            AudioManager.instance.ObjectPlacementSFX(); // INSERIR PLACE OBJECT
+        {
+            //   AudioManager.instance.ObjectPlacementSFX(); // INSERIR PLACE OBJECT
+        }
 
         Vector3 position = grid.CellToWorld(gridPosition)
                            + GridRotation.PivotOffset(BaseSize, rotation, grid.cellSize);

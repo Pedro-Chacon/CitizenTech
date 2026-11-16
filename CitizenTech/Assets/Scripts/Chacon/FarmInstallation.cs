@@ -21,7 +21,13 @@ public class FarmInstallation : Installation
 
     private PlantationDataSO PlantationData => data as PlantationDataSO;
 
-    public int GrowthDays => PlantationData != null ? PlantationData.growthDays : 1;
+    public int GrowthDays => PlantationData != null
+        ? Mathf.Max(1, PlantationData.growthDays + GetUpgradeBonus(u => u.growthDaysChange))
+        : 1;
+
+    public int YieldPerHarvest => PlantationData != null
+        ? Mathf.Max(1, PlantationData.yieldPerHarvest + GetUpgradeBonus(u => u.yieldChange))
+        : 0;
     public int DaysRemaining => Mathf.Max(0, GrowthDays - DaysGrown);
 
     // Plantação esperando o jogador conta como "parada" no aviso de passar o dia.
@@ -57,10 +63,12 @@ public class FarmInstallation : Installation
             return false;
 
         InventoryManager.instance.Add(PlantationData.product, PlantationData.yieldPerHarvest);
+        InventoryManager.instance.Add(PlantationData.product, YieldPerHarvest);
 
         State = PlantationState.Idle;
         DaysGrown = 0;
         UpdateVisual();
+
         NotifyChanged();
         return true;
     }
@@ -112,6 +120,14 @@ public class FarmInstallation : Installation
         if (State == PlantationState.Idle) return Plant();
         if (State == PlantationState.Ready) return Harvest();
         return false;
+    }
+
+    protected override void OnUpgraded(int newLevel)
+    {
+        if (State == PlantationState.Growing && DaysGrown >= GrowthDays)
+            State = PlantationState.Ready;
+
+        UpdateVisual();
     }
 
     // ---- Testes rápidos: botão direito no componente, em Play Mode ----

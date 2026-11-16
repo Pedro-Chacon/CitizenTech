@@ -5,6 +5,6 @@ using UnityEngine;
 public class HorseDataSO : InstallationDataSO
 {
     [Header("Viagens")]
-    [Tooltip("Dias fora por nível. Posição 0 = cavalo, 1 = depois do 1º upgrade (carroça), 2 = depois do 2º (carro)...")]
-    public List<int> tripDaysPerLevel = new() { 3, 2, 1 };
+    [Tooltip("Dias de viagem sem nenhum upgrade. Os upgrades somam 'Trip Days Change'.")]
+    [Min(1)] public int baseTripDays = 3;
 }
