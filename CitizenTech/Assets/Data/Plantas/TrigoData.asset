@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TrigoData
   m_EditorClassIdentifier: Assembly-CSharp::ProductSO
   displayName: Trigo
-  icon: {fileID: 184926547, guid: 6582f34ddd5f686408c019550cd94c9d, type: 3}
+  icon: {fileID: -1766482102, guid: 9f15f3686ce590c4da7e55c6e3215961, type: 3}
   sellPrice: 20

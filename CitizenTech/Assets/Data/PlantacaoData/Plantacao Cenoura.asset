@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b79c82057216614da203bbf5cd8f056, type: 3}
+  m_Name: Plantacao Cenoura
+  m_EditorClassIdentifier: Assembly-CSharp::PlantationDataSO
+  displayName: Plantacao de Cenoura
+  icon: {fileID: 1577350606, guid: d1b0f51981f73d64dbbd7f29fff7f615, type: 3}
+  price: 120
+  refundPercent: 0.5
+  upgrades:
+  - displayName: Irrigadores
+    image: {fileID: 21300000, guid: 93cd4e9d3c0f5904daaff7b3baaf6c69, type: 3}
+    description: 
+    cost: 50
+    growthDaysChange: -1
+    yieldChange: 0
+    tripDaysChange: 0
+    bakeDaysChange: 0
+    ovenOutputChange: 0
+  - displayName: "Drone + Terra tecnol\xF3gica"
+    image: {fileID: 0}
+    description: 
+    cost: 200
+    growthDaysChange: -1
+    yieldChange: 0
+    tripDaysChange: 0
+    bakeDaysChange: 0
+    ovenOutputChange: 0
+  product: {fileID: 0}
+  yieldPerHarvest: 5
+  growthDays: 3
+  seedIcon: {fileID: 0}

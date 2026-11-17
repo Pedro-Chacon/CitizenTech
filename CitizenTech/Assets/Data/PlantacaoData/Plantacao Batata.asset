@@ -10,23 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b79c82057216614da203bbf5cd8f056, type: 3}
-  m_Name: PlantacaoTrigo
+  m_Name: Plantacao Batata
   m_EditorClassIdentifier: Assembly-CSharp::PlantationDataSO
-  displayName: Plantacao de Trigo
-  icon: {fileID: 21300000, guid: b8203f22905be8649936b198dd1f2994, type: 3}
-  price: 50
+  displayName: Plantacao de Batata
+  icon: {fileID: -222482932, guid: 086c8b43395d6c944b661a808408130b, type: 3}
+  price: 100
   refundPercent: 0.5
   upgrades:
-  - displayName: Plantacao de Trigo com irrigador
-    image: {fileID: 21300014, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
-    description: melhor
-    cost: 150
-    growthDaysChange: -1
+  - displayName: Irrigadores
+    image: {fileID: 0}
+    description: 
+    cost: 100
+    growthDaysChange: 0
     yieldChange: 0
     tripDaysChange: 0
     bakeDaysChange: 0
     ovenOutputChange: 0
-  product: {fileID: 11400000, guid: 4d03789029b44704ab77c2ff7eba4fe8, type: 2}
+  - displayName: "Drone + Terra tecn\xF3logica"
+    image: {fileID: 0}
+    description: 
+    cost: 100
+    growthDaysChange: 0
+    yieldChange: 0
+    tripDaysChange: 0
+    bakeDaysChange: 0
+    ovenOutputChange: 0
+  product: {fileID: 0}
   yieldPerHarvest: 5
   growthDays: 3
-  seedIcon: {fileID: 21300006, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
+  seedIcon: {fileID: 0}
