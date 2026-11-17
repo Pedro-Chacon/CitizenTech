@@ -17,7 +17,16 @@ MonoBehaviour:
   price: 50
   refundPercent: 0.5
   upgrades:
-  - displayName: Plantacao de Trigo com irrigador
+  - displayName: Irrigadores
+    image: {fileID: 21300014, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
+    description: melhor
+    cost: 150
+    growthDaysChange: -1
+    yieldChange: 0
+    tripDaysChange: 0
+    bakeDaysChange: 0
+    ovenOutputChange: 0
+  - displayName: "Drones + Terra tecnol\xF3gica"
     image: {fileID: 21300014, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
     description: melhor
     cost: 150
@@ -29,4 +38,4 @@ MonoBehaviour:
   product: {fileID: 11400000, guid: 4d03789029b44704ab77c2ff7eba4fe8, type: 2}
   yieldPerHarvest: 5
   growthDays: 3
-  seedIcon: {fileID: 21300006, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
+  seedIcon: {fileID: 655677375, guid: 8870d35c1d7157a41aa759bf50a7d070, type: 3}

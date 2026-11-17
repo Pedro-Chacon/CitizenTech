@@ -16,6 +16,14 @@ public class FarmInstallation : Installation
     [Tooltip("Em ordem: terra com semente, fase 1, fase 2... O ÚLTIMO é o visual de 'pronta'.")]
     [SerializeField] private GameObject[] growthVisuals;
 
+    [Header("Visuais dos upgrades (extras por cima da terra)")]
+    [Tooltip("Item 0 aparece depois do 1º upgrade (ex.: irrigadores), item 1 depois do 2º (ex.: drones)... " +
+             "Ficam visíveis em qualquer fase da plantação. Têm que ser FILHOS deste objeto.")]
+    [SerializeField] private GameObject[] upgradeVisuals;
+
+    [Tooltip("Marcado: cada upgrade SUBSTITUI o visual do anterior. Desmarcado: os visuais se somam.")]
+    [SerializeField] private bool replacePreviousUpgradeVisual = false;
+
     public PlantationState State { get; private set; } = PlantationState.Idle;
     public int DaysGrown { get; private set; }
 
@@ -62,7 +70,6 @@ public class FarmInstallation : Installation
         if (State != PlantationState.Ready || InventoryManager.instance == null || PlantationData == null)
             return false;
 
-      
         InventoryManager.instance.Add(PlantationData.product, YieldPerHarvest);
 
         State = PlantationState.Idle;
@@ -88,9 +95,15 @@ public class FarmInstallation : Installation
 
     private void UpdateVisual()
     {
-        if (idleVisual != null)
+        if (IsValidVisual(idleVisual, "Idle Visual", 0))
             idleVisual.SetActive(State == PlantationState.Idle);
 
+        UpdateGrowthVisuals();
+        UpdateUpgradeVisuals();
+    }
+
+    private void UpdateGrowthVisuals()
+    {
         if (growthVisuals == null || growthVisuals.Length == 0)
             return;
 
@@ -110,9 +123,47 @@ public class FarmInstallation : Installation
 
         for (int i = 0; i < growthVisuals.Length; i++)
         {
-            if (growthVisuals[i] != null)
+            if (IsValidVisual(growthVisuals[i], "Growth Visuals", i))
                 growthVisuals[i].SetActive(i == shown);
         }
+    }
+
+    // Irrigadores, drones... aparecem conforme o nível, em qualquer fase da plantação.
+    private void UpdateUpgradeVisuals()
+    {
+        if (upgradeVisuals == null)
+            return;
+
+        for (int i = 0; i < upgradeVisuals.Length; i++)
+        {
+            if (!IsValidVisual(upgradeVisuals[i], "Upgrade Visuals", i))
+                continue;
+
+            // Item i pertence ao upgrade de número i+1.
+            bool show = replacePreviousUpgradeVisual
+                ? CurrentLevel == i + 1
+                : CurrentLevel >= i + 1;
+
+            upgradeVisuals[i].SetActive(show);
+        }
+    }
+
+    // O visual TEM que ser um filho deste objeto. Se fosse o próprio objeto ou um prefab da
+    // pasta Project, desativá-lo faria a plantação sumir ou não mudaria nada na cena.
+    private bool IsValidVisual(GameObject visual, string fieldName, int index)
+    {
+        if (visual == null)
+            return false;
+
+        if (visual == gameObject || !visual.transform.IsChildOf(transform))
+        {
+            Debug.LogError(
+                $"[{name}] {fieldName} [{index}] ('{visual.name}') precisa ser um FILHO deste objeto na Hierarchy " +
+                "(não o próprio objeto, nem um prefab da pasta Project).", this);
+            return false;
+        }
+
+        return true;
     }
 
     public override bool TryQuickAction()
@@ -147,6 +198,6 @@ public class FarmInstallation : Installation
     [ContextMenu("Debug: status da plantação")]
     private void DebugFarmStatus()
     {
-        Debug.Log($"[{name}] Estado: {State} | Dias: {DaysGrown}/{GrowthDays}", this);
+        Debug.Log($"[{name}] Estado: {State} | Dias: {DaysGrown}/{GrowthDays} | Nível: {CurrentLevel}", this);
     }
 }
