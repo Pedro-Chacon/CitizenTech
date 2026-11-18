@@ -236,7 +236,7 @@ MonoBehaviour:
   sceneDatabaseId: 5
   sellable: 1
   bakingEffect: {fileID: 0}
-  extraActionIcon: {fileID: 21300000, guid: 36ba444b2a409a147ad4b2322fb92d39, type: 3}
+  extraActionIcon: {fileID: -2030347629, guid: 8cf388bf52c4fcf44a9b7f34f5e19376, type: 3}
 --- !u!1001 &854414033871279462
 PrefabInstance:
   m_ObjectHideFlags: 0

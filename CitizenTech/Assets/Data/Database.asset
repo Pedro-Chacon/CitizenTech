@@ -27,7 +27,7 @@ MonoBehaviour:
     <Prefab>k__BackingField: {fileID: 6442907102381166658, guid: 5544f957e8b728747b37c761e8ab4d5d, type: 3}
   - <Name>k__BackingField: "Planta\xE7\xE3o Cenoura"
     <ID>k__BackingField: 4
-    <Size>k__BackingField: {x: 3, y: 2}
+    <Size>k__BackingField: {x: 2, y: 2}
     <Prefab>k__BackingField: {fileID: 6442907102381166658, guid: 2de49122c7db70f4da63412c71124ef9, type: 3}
   - <Name>k__BackingField: Cavalo Carroca
     <ID>k__BackingField: 5

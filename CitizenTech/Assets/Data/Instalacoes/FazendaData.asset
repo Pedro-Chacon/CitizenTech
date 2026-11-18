@@ -15,10 +15,5 @@ MonoBehaviour:
   displayName: Fazenda
   icon: {fileID: 21300000, guid: eba333f0c3cd76349ae51f89a0bde19d, type: 3}
   price: 100
-  constructionTurns: 2
   refundPercent: 0.5
-  upgrades:
-  - displayName: Fazenda 2
-    image: {fileID: 21300000, guid: c469889db0eea1a459df9473c96b26fb, type: 3}
-    description: fica melhor
-    cost: 200
+  upgrades: []

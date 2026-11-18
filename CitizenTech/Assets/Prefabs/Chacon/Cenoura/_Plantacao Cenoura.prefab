@@ -9350,7 +9350,7 @@ MonoBehaviour:
   upgradeVisuals:
   - {fileID: 2502045673640827851}
   - {fileID: 7882144270865547546}
-  replacePreviousUpgradeVisual: 1
+  replacePreviousUpgradeVisual: 0
 --- !u!1 &6485590862008927368
 GameObject:
   m_ObjectHideFlags: 0

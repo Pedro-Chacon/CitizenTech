@@ -73,7 +73,7 @@ MonoBehaviour:
   sceneDatabaseId: 3
   sellable: 0
   exportPanel: {fileID: 0}
-  extraActionIcon: {fileID: 21300000, guid: 6fd0b649401ca5b419a5ebf5df170c0f, type: 3}
+  extraActionIcon: {fileID: -1355761944, guid: 3266073b16a582940a6641175b6db61a, type: 3}
   levelVisuals:
   - {fileID: 6051261372002687375}
   - {fileID: 276119918712282076}
@@ -337,6 +337,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -99.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 13.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.52
+      objectReference: {fileID: 0}
     - target: {fileID: 3399693430283534007, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -433,6 +449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6390891636625705476, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 975839496, guid: 9748a19ce81e9734aa2b1a951a45d637, type: 3}
     - target: {fileID: 8380149580750729048, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_Layer
       value: 6

@@ -10738,7 +10738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1766482102, guid: 9f15f3686ce590c4da7e55c6e3215961, type: 3}
+  m_Sprite: {fileID: -222482932, guid: 086c8b43395d6c944b661a808408130b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15116,7 +15116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d73ffcdfe70fe4cad9ad64f6a79b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmInstallation
-  data: {fileID: 11400000, guid: 56d753ddc714ac54dac56b62b5a3ddfe, type: 2}
+  data: {fileID: 11400000, guid: 70871681fcab82a47a9c67a8b2cc33c6, type: 2}
   sceneDatabaseId: -1
   sellable: 1
   idleVisual: {fileID: 5897483093596159124}
@@ -15130,7 +15130,7 @@ MonoBehaviour:
   upgradeVisuals:
   - {fileID: 2502045673640827851}
   - {fileID: 7882144270865547546}
-  replacePreviousUpgradeVisual: 1
+  replacePreviousUpgradeVisual: 0
 --- !u!1 &6446077932509101735
 GameObject:
   m_ObjectHideFlags: 0

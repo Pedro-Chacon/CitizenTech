@@ -74,10 +74,10 @@ public class OvenPanel : MonoBehaviour
             ? InventoryManager.instance.GetAmount(oven.InputProduct)
             : 0;
 
-        recipeText.text = $"{oven.InputAmount} {oven.InputProduct.displayName} -> " +
-                          $"{oven.OutputAmount} {oven.OutputProduct.displayName}";
-        stockText.text = $"No silo: {stock}";
-        timeText.text = $"Tempo: {oven.BakeDays} dias";
+        recipeText.text = $"{oven.InputAmount} {oven.InputProduct.displayName}(s) --> " +
+                          $"{oven.OutputAmount} {oven.OutputProduct.displayName}(es)";
+        stockText.text = $"Trigos no silo: {stock}";
+        timeText.text = $"Tempo para assar: {oven.BakeDays} dias";
 
         bakeButton.interactable = stock >= oven.InputAmount;
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Oven Data SO
   m_EditorClassIdentifier: Assembly-CSharp::OvenDataSO
   displayName: Forno
-  icon: {fileID: -3168733581550749585, guid: f7043b7291f49844b9671b3d3dedcbb5, type: 3}
+  icon: {fileID: 1849931709, guid: 0de0fb5aed500b04fa20e123ded5c68d, type: 3}
   price: 100
   refundPercent: 0.5
   upgrades: []

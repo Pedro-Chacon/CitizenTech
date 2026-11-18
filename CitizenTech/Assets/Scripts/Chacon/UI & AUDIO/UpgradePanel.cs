@@ -131,7 +131,7 @@ public class UpgradePanel : MonoBehaviour
                 i < target.CurrentLevel ? UpgradeCardUI.CardState.Purchased :
                 i == target.CurrentLevel ? UpgradeCardUI.CardState.Available :
                 UpgradeCardUI.CardState.Locked;
-
+            Debug.Log($"[UpgradePanel] Card {i}: estado={state}, dinheiro={money}, custo={upgrades[i].cost}, nível atual={target.CurrentLevel}");
             cards[i].SetState(state, money >= upgrades[i].cost);
         }
     }
