@@ -41,3 +41,15 @@ MonoBehaviour:
     <ID>k__BackingField: 7
     <Size>k__BackingField: {x: 1, y: 1}
     <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: 10da80b2c95aa2d40930d19c7fd5a068, type: 3}
+  - <Name>k__BackingField: "\xC1rvore Laranjeira"
+    <ID>k__BackingField: 8
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: 9c24415787bf44749a95010a0efc5d32, type: 3}
+  - <Name>k__BackingField: "\xC1rvore Macieira"
+    <ID>k__BackingField: 9
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: 7402f2a40560ee54ca63bb79e598069f, type: 3}
+  - <Name>k__BackingField: Arbustro
+    <ID>k__BackingField: 10
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 3493615974341626966, guid: 62b9d26077a3fdb419e239af3d245382, type: 3}
