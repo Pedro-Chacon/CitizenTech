@@ -17,6 +17,13 @@ public class PlacementSystem : MonoBehaviour
 
     [SerializeField] private ObjectPlacer objectPlacer;
 
+    [Header("Limites da grid")]
+    [SerializeField] private bool limitToBounds = true;
+    [Tooltip("Célula do canto inferior esquerdo da área jogável (X, Z).")]
+    [SerializeField] private Vector2Int boundsMinCell = new Vector2Int(0, 0);
+    [Tooltip("Largura e profundidade da área jogável, em células.")]
+    [SerializeField] private Vector2Int boundsSize = new Vector2Int(10, 10);
+
     [Tooltip("Tecla que gira o objeto em passos de 90° durante o posicionamento.")]
     [SerializeField] private KeyCode rotateKey = KeyCode.R;
 
@@ -29,6 +36,13 @@ public class PlacementSystem : MonoBehaviour
         StopPlacement();
         floorData = new();
         furnitureData = new();
+
+        if (limitToBounds)
+        {
+            floorData.SetBounds(boundsMinCell, boundsSize);
+            furnitureData.SetBounds(boundsMinCell, boundsSize);
+        }
+
         RegisterSceneInstallations();
     }
 
@@ -248,5 +262,43 @@ public class PlacementSystem : MonoBehaviour
 
         int index = objectPlacer.Register(installation.gameObject);
         data.AddObjectAt(anchor, rotatedSize, entry.ID, index, rotation);
+    }
+    // Retângulo amarelo na Scene View (com o PlacementSystem selecionado e Gizmos ligado).
+    private void OnDrawGizmosSelected()
+    {
+        if (!limitToBounds || grid == null)
+            return;
+
+        Vector3 a = grid.CellToWorld(new Vector3Int(boundsMinCell.x, 0, boundsMinCell.y));
+        Vector3 b = grid.CellToWorld(new Vector3Int(boundsMinCell.x + boundsSize.x, 0, boundsMinCell.y + boundsSize.y));
+
+        Vector3 center = (a + b) * 0.5f + Vector3.up * 0.05f;
+        Vector3 size = new Vector3(Mathf.Abs(b.x - a.x), 0.05f, Mathf.Abs(b.z - a.z));
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(center, size);
+    }
+
+    [ContextMenu("Preencher limites a partir do Grid Visualization")]
+    private void FillBoundsFromVisualization()
+    {
+        Renderer r = gridVisualization != null ? gridVisualization.GetComponentInChildren<Renderer>(true) : null;
+        if (r == null || grid == null)
+        {
+            Debug.LogWarning("[PlacementSystem] Grid Visualization sem Renderer (ou Grid não atribuído).", this);
+            return;
+        }
+
+        Bounds b = r.bounds;
+        Vector3 half = new Vector3(grid.cellSize.x, 0f, grid.cellSize.z) * 0.5f;
+
+        // Meia célula pra dentro evita erro de arredondamento nas bordas.
+        Vector3Int min = grid.WorldToCell(new Vector3(b.min.x, 0f, b.min.z) + half);
+        Vector3Int max = grid.WorldToCell(new Vector3(b.max.x, 0f, b.max.z) - half);
+
+        boundsMinCell = new Vector2Int(min.x, min.z);
+        boundsSize = new Vector2Int(max.x - min.x + 1, max.z - min.z + 1);
+
+        Debug.Log($"[PlacementSystem] Limites: min {boundsMinCell}, tamanho {boundsSize}", this);
     }
 }

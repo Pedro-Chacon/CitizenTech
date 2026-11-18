@@ -5314,7 +5314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6230691708598271666, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9307,7 +9307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6230691708598271666, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13456,7 +13456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6230691708598271666, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14939,6 +14939,9 @@ MonoBehaviour:
   gridVisualization: {fileID: 1728945163}
   preview: {fileID: 1242795814}
   objectPlacer: {fileID: 892305109}
+  limitToBounds: 1
+  boundsMinCell: {x: -7, y: -7}
+  boundsSize: {x: 15, y: 15}
   rotateKey: 114
 --- !u!1 &1537022017
 GameObject:
@@ -17403,7 +17406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6230691708598271666, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

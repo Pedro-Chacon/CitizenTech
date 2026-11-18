@@ -5,7 +5,26 @@ using UnityEngine;
 public class GridData
 {
     Dictionary<Vector3Int, PlacementData> placedObjects = new();
+    private bool hasBounds;
+    private Vector3Int boundsMin;
+    private Vector2Int boundsSize;
 
+    // minCell = célula do canto inferior esquerdo (x, z). size = quantas células de largura e profundidade.
+    public void SetBounds(Vector2Int minCell, Vector2Int size)
+    {
+        hasBounds = true;
+        boundsMin = new Vector3Int(minCell.x, 0, minCell.y);
+        boundsSize = size;
+    }
+
+    private bool IsInsideBounds(Vector3Int pos)
+    {
+        if (!hasBounds)
+            return true;
+
+        return pos.x >= boundsMin.x && pos.x < boundsMin.x + boundsSize.x
+            && pos.z >= boundsMin.z && pos.z < boundsMin.z + boundsSize.y;
+    }
     public void AddObjectAt(Vector3Int gridPosition,
         Vector2Int objectSize,
         int ID, int placedObjectIndex,
@@ -39,6 +58,9 @@ public class GridData
         List<Vector3Int> positionToOccupy = CalculatePositions(gridPosition, objectSize);
         foreach (var pos in positionToOccupy)
         {
+            if (!IsInsideBounds(pos))
+                return false;
+
             if (placedObjects.ContainsKey(pos))
                 return false;
         }
