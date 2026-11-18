@@ -106,6 +106,10 @@ public class AudioManager : MonoBehaviour
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         return eventInstance;
     }
+    public void StopMenuMusic()
+    {
+        if (gameplayMusic != null)
+            gameplayMusic.Stop();
+    }
 
-    
 }

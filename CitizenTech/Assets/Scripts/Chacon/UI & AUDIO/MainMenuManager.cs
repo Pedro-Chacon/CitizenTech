@@ -23,6 +23,10 @@ public class MainMenuManager : MonoBehaviour
     Coroutine _scrollRoutine;
     float _creditsRestX;
 
+    [Header("Cutscene")]
+    [SerializeField] CutscenePlayer cutscene;
+    [Tooltip("Objeto com todo o visual do menu (botões, título). Some quando a cutscene começa.")]
+    [SerializeField] GameObject menuVisualRoot;
     private void Start()
     {
         Bind(buttonPlay, PlayGame, nameof(buttonPlay));
@@ -43,6 +47,23 @@ public class MainMenuManager : MonoBehaviour
     }
 
     void PlayGame()
+    {
+        if (buttonPlay != null)
+            buttonPlay.interactable = false; // evita clique duplo
+
+        if (cutscene == null)
+        {
+            LoadGame();
+            return;
+        }
+
+        if (menuVisualRoot != null)
+            menuVisualRoot.SetActive(false);
+
+        cutscene.Play(LoadGame);
+    }
+
+    void LoadGame()
     {
         MMSceneLoadingManager.LoadScene("ChaconGameScene", "LoadingScreenCitizenTech");
     }

@@ -25,10 +25,14 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float minHeight = 4f;
     [SerializeField] private float maxHeight = 20f;
 
-    [Header("Limites do mapa (opcional)")]
-    [SerializeField] private bool useBounds = false;
-    [SerializeField] private Vector2 minBounds = new Vector2(-10f, -10f);
-    [SerializeField] private Vector2 maxBounds = new Vector2(30f, 30f);
+    [Header("Limites (4 objetos vazios nos cantos)")]
+    [SerializeField] private bool useBounds = true;
+    [SerializeField] private Transform cornerTopLeft;
+    [SerializeField] private Transform cornerTopRight;
+    [SerializeField] private Transform cornerBottomRight;
+    [SerializeField] private Transform cornerBottomLeft;
+    [Tooltip("Folga para dentro do retângulo (0 = vai até a borda exata).")]
+    [SerializeField] private float margin = 0f;
 
     private bool dragging;
     private Vector3 dragStartPoint;
@@ -57,7 +61,7 @@ public class CameraController : MonoBehaviour
 
         HandlePan();
         HandleZoom();
-        ClampPosition();
+        ClampToBounds();
     }
 
     private void HandlePan()
@@ -113,21 +117,69 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void ClampPosition()
+    // Limita o PONTO DO CHÃO que está no centro da tela, não a posição da câmera.
+    private void ClampToBounds()
     {
-        if (!useBounds)
+        if (!useBounds || !TryGetBounds(out float minX, out float maxX, out float minZ, out float maxZ))
             return;
 
-        Vector3 position = transform.position;
-        position.x = Mathf.Clamp(position.x, minBounds.x, maxBounds.x);
-        position.z = Mathf.Clamp(position.z, minBounds.y, maxBounds.y);
-        transform.position = position;
+        if (!TryGetScreenCenterGroundPoint(out Vector3 focus))
+            return;
+
+        float cx = ClampAxis(focus.x, minX + margin, maxX - margin);
+        float cz = ClampAxis(focus.z, minZ + margin, maxZ - margin);
+
+        transform.position += new Vector3(cx - focus.x, 0f, cz - focus.z);
+    }
+
+    // Se a margem for maior que a área, trava no centro em vez de dar erro.
+    private static float ClampAxis(float value, float min, float max)
+    {
+        if (min > max)
+            return (min + max) * 0.5f;
+        return Mathf.Clamp(value, min, max);
+    }
+
+    // Lê os 4 cantos e monta o retângulo (não importa a ordem em que foram arrastados).
+    private bool TryGetBounds(out float minX, out float maxX, out float minZ, out float maxZ)
+    {
+        minX = maxX = minZ = maxZ = 0f;
+
+        if (cornerTopLeft == null || cornerTopRight == null ||
+            cornerBottomRight == null || cornerBottomLeft == null)
+            return false;
+
+        Transform[] corners = { cornerTopLeft, cornerTopRight, cornerBottomRight, cornerBottomLeft };
+
+        minX = minZ = float.MaxValue;
+        maxX = maxZ = float.MinValue;
+
+        foreach (Transform corner in corners)
+        {
+            Vector3 p = corner.position;
+            minX = Mathf.Min(minX, p.x);
+            maxX = Mathf.Max(maxX, p.x);
+            minZ = Mathf.Min(minZ, p.z);
+            maxZ = Mathf.Max(maxZ, p.z);
+        }
+        return true;
+    }
+
+    private bool TryGetScreenCenterGroundPoint(out Vector3 point)
+    {
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        return RaycastGround(ray, out point);
     }
 
     private bool TryGetGroundPoint(out Vector3 point)
     {
-        Plane ground = new Plane(Vector3.up, new Vector3(0f, groundY, 0f));
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        return RaycastGround(ray, out point);
+    }
+
+    private bool RaycastGround(Ray ray, out Vector3 point)
+    {
+        Plane ground = new Plane(Vector3.up, new Vector3(0f, groundY, 0f));
 
         if (ground.Raycast(ray, out float distance))
         {
@@ -142,5 +194,17 @@ public class CameraController : MonoBehaviour
     private static bool IsPointerOverUI()
     {
         return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+    }
+
+    // Retângulo verde na Scene View mostrando a área da câmera.
+    private void OnDrawGizmos()
+    {
+        if (!useBounds || !TryGetBounds(out float minX, out float maxX, out float minZ, out float maxZ))
+            return;
+
+        Gizmos.color = Color.green;
+        Vector3 center = new Vector3((minX + maxX) * 0.5f, groundY, (minZ + maxZ) * 0.5f);
+        Vector3 size = new Vector3(maxX - minX, 0.1f, maxZ - minZ);
+        Gizmos.DrawWireCube(center, size);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855b4ff82c5462e499fb00f2b183aa7f, type: 3}
   m_Name: Flor Data
   m_EditorClassIdentifier: Assembly-CSharp::InstallationDataSO
-  displayName: "(Decira\xE7\xE3o) Flor"
+  displayName: "(Decora\xE7\xE3o) Flor"
   icon: {fileID: 0}
   price: 1
   refundPercent: 0

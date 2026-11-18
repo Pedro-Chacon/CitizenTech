@@ -251,7 +251,7 @@ public class PlacementSystem : MonoBehaviour
         GridData data = entry.ID == 0 ? floorData : furnitureData;
         if (!data.CanPlaceObjectAt(anchor, rotatedSize))
         {
-            Debug.LogError($"[PlacementSystem] {installation.name} sobrepõe outra instalação na célula {anchor}.", installation);
+            Debug.LogWarning($"[PlacementSystem] {installation.name} sobrepõe outra instalação na célula {anchor}.", installation);
             return;
         }
 

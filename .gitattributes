@@ -2,3 +2,6 @@
 * text=auto
 Assets/Plugins/FMOD/**/*.bundle text eol=lf
 Assets/Plugins/FMOD/**/Info.plist text eol=lf
+Assets/Scenes/ChaconGameScene filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/ChaconGameScene.unity filter=lfs diff=lfs merge=lfs -text
+CitizenTech/Assets/Scenes/ChaconGameScene.unity filter=lfs diff=lfs merge=lfs -text
