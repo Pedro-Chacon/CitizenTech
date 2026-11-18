@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlantationDataSO
   displayName: Plantacao de Trigo
   icon: {fileID: -1766482102, guid: 9f15f3686ce590c4da7e55c6e3215961, type: 3}
-  price: 50
+  price: 45
   refundPercent: 0.5
   upgrades:
   - displayName: Irrigadores
     image: {fileID: 21300014, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
     description: "Adi\xE7\xE3o de irrigadores na planta\xE7\xE3o, diminuindo o tempo
       de colheita."
-    cost: 100
+    cost: 70
     growthDaysChange: -1
     yieldChange: 0
     tripDaysChange: 0
@@ -31,13 +31,13 @@ MonoBehaviour:
     image: {fileID: 21300014, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
     description: "Adi\xE7\xE3o de um drone na planta\xE7\xE3o e uma terra com propiedades
       especiais, diminuindo o tempo de colheita e aumentando a quantidade."
-    cost: 200
+    cost: 100
     growthDaysChange: -1
-    yieldChange: 0
+    yieldChange: 5
     tripDaysChange: 0
     bakeDaysChange: 0
     ovenOutputChange: 0
   product: {fileID: 11400000, guid: 4d03789029b44704ab77c2ff7eba4fe8, type: 2}
-  yieldPerHarvest: 5
-  growthDays: 3
+  yieldPerHarvest: 8
+  growthDays: 2
   seedIcon: {fileID: -1766482102, guid: 9f15f3686ce590c4da7e55c6e3215961, type: 3}

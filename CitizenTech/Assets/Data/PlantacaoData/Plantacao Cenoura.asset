@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlantationDataSO
   displayName: Plantacao de Cenoura
   icon: {fileID: 1577350606, guid: d1b0f51981f73d64dbbd7f29fff7f615, type: 3}
-  price: 120
+  price: 25
   refundPercent: 0.5
   upgrades:
   - displayName: Irrigadores
     image: {fileID: 21300000, guid: 93cd4e9d3c0f5904daaff7b3baaf6c69, type: 3}
     description: "Adi\xE7\xE3o de irrigadores na planta\xE7\xE3o, diminuindo o tempo
       de colheita."
-    cost: 50
+    cost: 25
     growthDaysChange: -1
     yieldChange: 0
     tripDaysChange: 0
@@ -31,13 +31,13 @@ MonoBehaviour:
     image: {fileID: 0}
     description: "Adi\xE7\xE3o de um drone na planta\xE7\xE3o e uma terra com propiedades
       especiais, diminuindo o tempo de colheita e aumentando a quantidade."
-    cost: 200
-    growthDaysChange: -1
-    yieldChange: 0
+    cost: 50
+    growthDaysChange: 0
+    yieldChange: 5
     tripDaysChange: 0
     bakeDaysChange: 0
     ovenOutputChange: 0
   product: {fileID: 11400000, guid: 8dceebe826602a1459ccc8ffcade7f4e, type: 2}
-  yieldPerHarvest: 5
-  growthDays: 3
+  yieldPerHarvest: 15
+  growthDays: 2
   seedIcon: {fileID: 1577350606, guid: d1b0f51981f73d64dbbd7f29fff7f615, type: 3}
