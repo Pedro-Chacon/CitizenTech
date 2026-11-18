@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlantationDataSO
   displayName: Plantacao de Batata
   icon: {fileID: -222482932, guid: 086c8b43395d6c944b661a808408130b, type: 3}
-  price: 100
+  price: 70
   refundPercent: 0.5
   upgrades:
   - displayName: Irrigadores
@@ -22,7 +22,7 @@ MonoBehaviour:
     description: "Adi\xE7\xE3o de irrigadores na planta\xE7\xE3o, diminuindo o tempo
       de colheita."
     cost: 100
-    growthDaysChange: 0
+    growthDaysChange: -1
     yieldChange: 0
     tripDaysChange: 0
     bakeDaysChange: 0
@@ -31,13 +31,13 @@ MonoBehaviour:
     image: {fileID: 0}
     description: "Adi\xE7\xE3o de um drone na planta\xE7\xE3o e uma terra com propiedades
       especiais, diminuindo o tempo de colheita e aumentando a quantidade."
-    cost: 100
+    cost: 150
     growthDaysChange: 0
-    yieldChange: 0
+    yieldChange: 5
     tripDaysChange: 0
     bakeDaysChange: 0
     ovenOutputChange: 0
   product: {fileID: 11400000, guid: 1696f23f882a8cb4fa96251a8bbca72d, type: 2}
-  yieldPerHarvest: 5
-  growthDays: 6
+  yieldPerHarvest: 8
+  growthDays: 3
   seedIcon: {fileID: 1820834237, guid: e97da43969dcafc4d90052e7192090e4, type: 3}

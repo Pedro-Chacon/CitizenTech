@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProductSO
   displayName: Cenoura
   icon: {fileID: 1577350606, guid: d1b0f51981f73d64dbbd7f29fff7f615, type: 3}
-  sellPrice: 20
+  sellPrice: 1

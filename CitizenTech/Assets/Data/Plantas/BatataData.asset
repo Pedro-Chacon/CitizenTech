@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProductSO
   displayName: Batata
   icon: {fileID: -222482932, guid: 086c8b43395d6c944b661a808408130b, type: 3}
-  sellPrice: 20
+  sellPrice: 3

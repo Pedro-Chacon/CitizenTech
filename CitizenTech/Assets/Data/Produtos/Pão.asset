@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProductSO
   displayName: "P\xE3o"
   icon: {fileID: 25236782, guid: 7544d965cae7f5748b9bdc7a3b6fc46c, type: 3}
-  sellPrice: 10
+  sellPrice: 8

@@ -13,25 +13,17 @@ MonoBehaviour:
   m_Name: Tribute Schedule
   m_EditorClassIdentifier: Assembly-CSharp::TributeScheduleSO
   tributes:
-  - dueDay: 1
-    amount: 10
-  - dueDay: 2
-    amount: 10
-  - dueDay: 3
-    amount: 10
-  - dueDay: 4
-    amount: 10
-  - dueDay: 5
-    amount: 10
-  - dueDay: 6
-    amount: 10
-  - dueDay: 7
-    amount: 10
-  - dueDay: 8
-    amount: 10
-  - dueDay: 9
-    amount: 10
-  - dueDay: 10
-    amount: 10
-  - dueDay: 11
-    amount: 10
+  - dueDay: 13
+    amount: 50
+  - dueDay: 25
+    amount: 65
+  - dueDay: 35
+    amount: 85
+  - dueDay: 45
+    amount: 110
+  - dueDay: 55
+    amount: 145
+  - dueDay: 65
+    amount: 200
+  - dueDay: 80
+    amount: 300
