@@ -335,6 +335,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -83.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716589533025813037, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.6699982
+      objectReference: {fileID: 0}
     - target: {fileID: 2528618915515379028, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_Enabled
       value: 0

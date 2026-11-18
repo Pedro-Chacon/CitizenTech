@@ -138,7 +138,7 @@ MonoBehaviour:
   canvas: {fileID: 2839319831263770127}
   button: {fileID: 3450229889639744271}
   iconImage: {fileID: 2894645387800813252}
-  coinIcon: {fileID: 21300000, guid: e1c696f87950acb4091d8a2b2b41fda2, type: 3}
+  coinIcon: {fileID: 975839496, guid: 9748a19ce81e9734aa2b1a951a45d637, type: 3}
 --- !u!1 &8533798919344824372
 GameObject:
   m_ObjectHideFlags: 0

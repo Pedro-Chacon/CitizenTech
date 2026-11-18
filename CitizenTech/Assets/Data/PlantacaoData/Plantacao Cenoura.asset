@@ -19,8 +19,7 @@ MonoBehaviour:
   upgrades:
   - displayName: Irrigadores
     image: {fileID: 21300000, guid: 93cd4e9d3c0f5904daaff7b3baaf6c69, type: 3}
-    description: "Adi\xE7\xE3o de irrigadores na planta\xE7\xE3o, diminuindo o tempo
-      de colheita."
+    description: Irrigadores que aceleram o tempo de colheita.
     cost: 25
     growthDaysChange: -1
     yieldChange: 0
@@ -29,8 +28,7 @@ MonoBehaviour:
     ovenOutputChange: 0
   - displayName: "Drone + Terra tecnol\xF3gica"
     image: {fileID: 0}
-    description: "Adi\xE7\xE3o de um drone na planta\xE7\xE3o e uma terra com propiedades
-      especiais, diminuindo o tempo de colheita e aumentando a quantidade."
+    description: "Drone e solo especial que aceleram a colheita e aumentam a produ\xE7\xE3o."
     cost: 50
     growthDaysChange: 0
     yieldChange: 5
