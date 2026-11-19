@@ -3,9 +3,9 @@ using UnityEngine;
 
 public enum HorseState
 {
-    Idle,      // parado na fazenda, pronto pra receber uma carga
-    Away,      // levando os produtos pra cidade
-    Returned   // voltou: lucro esperando o jogador coletar
+    Idle,      
+    Away,      
+    Returned   
 }
 
 public class HorseInstallation : Installation
@@ -28,12 +28,10 @@ public class HorseInstallation : Installation
 
     private HorseDataSO HorseData => data as HorseDataSO;
 
-    // Dias de viagem no nível atual (os upgrades encurtam).
     public int TripDays => HorseData == null
         ? 1
         : Mathf.Max(1, HorseData.baseTripDays + GetUpgradeBonus(u => u.tripDaysChange));
 
-    // Fora da fazenda, não dá pra interagir.
     public override bool CanMove => State != HorseState.Away;
     public override bool CanUpgrade => State != HorseState.Away && base.CanUpgrade;
 
@@ -58,7 +56,7 @@ public class HorseInstallation : Installation
             exportPanel.Open(this);
     }
 
-    // Clique rápido: coleta o lucro quando voltou; ignora cliques enquanto está fora.
+   
     public override bool TryQuickAction()
     {
         switch (State)
@@ -69,13 +67,13 @@ public class HorseInstallation : Installation
         }
     }
 
-    // Chamado pelo painel da cidade. Tira os produtos do inventário e manda o cavalo.
+
     public bool TryStartTrip(IReadOnlyDictionary<ProductSO, int> items)
     {
         if (State != HorseState.Idle || InventoryManager.instance == null)
             return false;
 
-        // Copia a carga: remover do inventário avisa o painel, que mexe na lista original.
+      
         List<KeyValuePair<ProductSO, int>> cargo = new();
         foreach (var pair in items)
         {
@@ -86,7 +84,7 @@ public class HorseInstallation : Installation
         if (cargo.Count == 0)
             return false;
 
-        // Valida tudo antes de remover qualquer coisa.
+
         int profit = 0;
         foreach (var pair in cargo)
         {
@@ -169,9 +167,7 @@ public class HorseInstallation : Installation
             if (visual == null)
                 continue;
 
-            // Proteção: o visual TEM que ser um filho deste objeto. Se fosse o próprio objeto,
-            // desativá-lo faria o cavalo inteiro sumir; se fosse um prefab da pasta Project,
-            // nada apareceria na cena.
+
             if (visual == gameObject || !visual.transform.IsChildOf(transform))
             {
                 Debug.LogError(
@@ -184,7 +180,7 @@ public class HorseInstallation : Installation
         }
     }
 
-    // ---- Testes rápidos: botão direito no componente, em Play Mode ----
+
 
     [ContextMenu("Debug: status do cavalo")]
     private void DebugHorseStatus()
