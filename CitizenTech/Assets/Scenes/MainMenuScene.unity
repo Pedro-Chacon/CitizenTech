@@ -2685,6 +2685,7 @@ GameObject:
   - component: {fileID: 662474320}
   - component: {fileID: 662474322}
   - component: {fileID: 662474321}
+  - component: {fileID: 662474323}
   m_Layer: 5
   m_Name: Fundo
   m_TagString: Untagged
@@ -2701,15 +2702,15 @@ RectTransform:
   m_GameObject: {fileID: 662474319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3328437, y: 1.3328437, z: 1.3328437}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7928648076859921619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &662474321
 MonoBehaviour:
@@ -2731,7 +2732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1695453808, guid: 2bcc377b3d50732408045a7032a086a7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2749,6 +2750,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662474319}
   m_CullTransparentMesh: 1
+--- !u!114 &662474323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662474319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc89613852dc3f47ab56d268220f956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuBackgroundParallax
+  maxOffset: {x: 30, y: 20}
+  smoothSpeed: 5
 --- !u!1 &697054875
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,36 +6087,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2580715674886658766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890576934166259366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.18431373}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!224 &2599389213306445966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6342,24 +6327,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &2890576934166259366
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3037317692467413819}
-  - component: {fileID: 5680771171785090829}
-  - component: {fileID: 2580715674886658766}
-  m_Layer: 5
-  m_Name: Panel (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &2911601484768919370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6402,25 +6369,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!224 &3037317692467413819
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890576934166259366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7928648076859921619}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3101412371115147173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6475,26 +6423,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=130%><color=#FFD84D>GCFire Studios</color></size>\r\n\r\n<i>Um jogo
-    desenvolvido para o</i>\r\n<color=#FFD84D>FIAP 2026 Challenge</color>\r\nem parceria
-    com a <color=#FFD84D>Arcos Dorados</color>\r\n<i>Projeto finalista, Top 3</i>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
-    EQUIPE -</color></size>\r\n\r\n<color=#FFD84D>Pedro Rodrigues Chacon</color>\r\nPrograma\xE7\xE3o
-    e Game Design\r\n<size=70%>linkedin.com/in/pedro-chacon-</size>\r\n\r\n<color=#FFD84D>Eduardo
-    Costa de Melo</color>\r\nModelagem e Texturiza\xE7\xE3o\r\n<size=70%>linkedin.com/in/eduardo-costa-de-melo-b9729a33a</size>\r\n\r\n<color=#FFD84D>Geniel
-    Henrique Martins Xavier</color>\r\nPrograma\xE7\xE3o e Arte de UI\r\n<size=70%>linkedin.com/in/genielhenrique</size>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
+  m_text: "<size=130%><color=#FFD84D>Duck Pirates</color></size>\r\n\r\n<i>Um jogo
+    desenvolvido para a</i>\r\n<color=#FFD84D>Global Solution FIAP 2026</color>\r\n<i>Tema:
+    Citizen Tech</i>\r\n<i>Faculdade de Desenvolvimento de Jogos, FIAP</i>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
+    EQUIPE -</color></size>\r\n\r\n<color=#FFD84D>Pedro Chacon</color>\r\nPrograma\xE7\xE3o
+    de todo o projeto e implementa\xE7\xE3o do jogo com FMOD\r\n<size=70%>linkedin.com/in/pedro-chacon-</size>\r\n\r\n<color=#FFD84D>Leticia
+    Alvez</color>\r\nArte e Modelagem\r\n<size=70%>linkedin.com/in/leticianascimento0</size>\r\n\r\n<color=#FFD84D>Arthur
+    Gobbetti</color>\r\nGame Design, Documenta\xE7\xE3o e Produ\xE7\xE3o\r\n<size=70%>linkedin.com/in/arthur-gobbetti-bb4572293</size>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
     \xC1UDIO -</color></size>\r\n\r\n\xC1udio implementado com <color=#FFD84D>FMOD
-    Studio</color>\r\nFMOD Studio by Firelight Technologies Pty Ltd.\r\n\r\n<color=#FFD84D>M\xFAsicas</color>\r\n\r\n\"Cool
-    Vibes\"\r\n\"Vibing Over Venus\"\r\n\"Crinoline Dreams\"\r\nKevin MacLeod (incompetech.com)\r\nLicenciadas
-    sob Creative Commons: By Attribution 4.0\r\n<size=70%>http://creativecommons.org/licenses/by/4.0/</size>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
-    MODELOS 3D -</color></size>\r\n\r\nPersonagens dos clientes (NPCs), via Sketchfab:\r\n\r\n<size=60%>1.
-    https://sketchfab.com/3d-models/anime-charactersouta-free-unity-3d-fa79710a9b7b4bf79fe4bf63edd8cfd8\r\n2.
-    https://sketchfab.com/3d-models/anime-characterarisa-free-unity-3d-284317925844496994d76ef4ea6024b6\r\n3.
-    https://sketchfab.com/3d-models/anime-style-character-78802e50dfe6492192a4d2365a500ff3</size>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
-    AGRADECIMENTOS -</color></size>\r\n\r\nObrigado \xE0 <color=#FFD84D>Arcos Dorados</color>
-    e \xE0 <color=#FFD84D>FIAP</color> pela oportunidade\r\ne por um desafio que
-    nos fez crescer muito como equipe.\r\nFoi um projeto feito com muito esfor\xE7o
-    e carinho e chegar ao Top 3 foi a melhor recompensa.\r\n\r\nE obrigado a voc\xEA
-    por jogar. Boa sorte no pr\xF3ximo turno!\r\n\r\n<size=70%>\xA9 2026 GCFire Studios</size>"
+    Studio</color>\r\nFMOD Studio by Firelight Technologies Pty Ltd.\r\n\r\nProdu\xE7\xE3o
+    de alguns \xE1udios por <color=#FFD84D>Arthur Gobbetti</color>\r\n\r\n<color=#FFD84D>M\xFAsicas</color>\r\n\r\n\"Easy
+    Lemon\"\r\n\"Morning\"\r\n\"The Forest and the Trees\"\r\n\"The Parting\"\r\nKevin
+    MacLeod (incompetech.com)\r\nLicenciadas sob Creative Commons: By Attribution
+    4.0\r\n<size=70%>http://creativecommons.org/licenses/by/4.0/</size>\r\n\r\nM\xFAsica
+    de fazenda por <color=#FFD84D>migfus20</color>\r\n<size=70%>opengameart.org/content/farm-music</size>\r\n\r\n\r\n\r\n<size=115%><color=#FFD84D>-
+    AGRADECIMENTOS -</color></size>\r\n\r\nObrigado \xE0 <color=#FFD84D>FIAP</color>
+    pela oportunidade\r\ne por um desafio que nos fez crescer muito como equipe.\r\n\r\nE
+    obrigado a voc\xEA por jogar!\r\n\r\n<size=70%>\xA9 2026 Duck Pirates</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76c02fc3edd183047b63348103c9c20a, type: 2}
   m_sharedMaterial: {fileID: 4406798265438319806, guid: 76c02fc3edd183047b63348103c9c20a, type: 2}
@@ -7400,14 +7345,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5680771171785090829
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890576934166259366}
-  m_CullTransparentMesh: 1
 --- !u!1 &5702652403268662948
 GameObject:
   m_ObjectHideFlags: 0
@@ -7601,7 +7538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.34117648}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7960,15 +7897,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5956529675781256732}
+  - {fileID: 662474320}
   - {fileID: 8867678744699011479}
-  - {fileID: 3037317692467413819}
   - {fileID: 5439338846574901816}
   - {fileID: 398252155}
   - {fileID: 3652254468309127992}
   - {fileID: 5367310320972614772}
   - {fileID: 1700839971}
   - {fileID: 723488570}
-  - {fileID: 662474320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Toca o som de "negado" quando o jogador clica num botão que JÁ estava bloqueado.
+
 [RequireComponent(typeof(Button))]
 public class BlockedClickSound : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
 {
@@ -14,9 +14,7 @@ public class BlockedClickSound : MonoBehaviour, IPointerDownHandler, IPointerCli
         button = GetComponent<Button>();
     }
 
-    // Guarda se o botão estava liberado no instante em que o mouse apertou.
-    // Um clique válido pode bloquear o próprio botão (ex.: gastar o último trigo, passar o dia),
-    // e isso não é um clique negado.
+   
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left)

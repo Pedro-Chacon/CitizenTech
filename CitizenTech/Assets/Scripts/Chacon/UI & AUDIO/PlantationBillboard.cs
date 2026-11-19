@@ -18,8 +18,6 @@ public class PlantationBillboard : MonoBehaviour
     {
         farm = GetComponentInParent<FarmInstallation>();
 
-        // Cópia do preview (Installation desativado) ou prefab sem plantação:
-        // o canvas fica escondido e nada é assinado.
         if (farm == null || !farm.enabled)
             return;
 

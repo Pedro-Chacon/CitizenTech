@@ -158,12 +158,11 @@ public class PlacementSystem : MonoBehaviour
         if (AudioManager.instance != null)
         {
 
-                  AudioManager.instance.ObjectPlacementSFX(); // TODO: trocar por um som de venda
+                  AudioManager.instance.ObjectPlacementSFX(); 
         }
         return true;
     }
 
-    // Pública: pode ser chamada por um botão de UI além da tecla.
     public void RotateSelection()
     {
         if (buildingState == null)
@@ -174,7 +173,6 @@ public class PlacementSystem : MonoBehaviour
         if (AudioManager.instance != null)
             AudioManager.instance.PlayRotateSFX();
 
-        // Atualiza o fantasma na hora, mesmo com o mouse parado.
         Vector3Int gridPosition = grid.WorldToCell(inputManager.GetSelectedMapPosition());
         buildingState.UpdateState(gridPosition);
         lastDetectedPosition = gridPosition;
@@ -221,7 +219,6 @@ public class PlacementSystem : MonoBehaviour
         }
     }
 
-    // ---- Instalações que já nascem na cena (silo, casa, cavalo) ----
 
     private void RegisterSceneInstallations()
     {
@@ -245,8 +242,7 @@ public class PlacementSystem : MonoBehaviour
         Vector2Int rotatedSize = GridRotation.RotatedSize(entry.Size, rotation);
         Vector3 offset = GridRotation.PivotOffset(entry.Size, rotation, grid.cellSize);
 
-        // O pivô está no canto da área ocupada (menos o offset da rotação).
-        // Somar meia célula evita erro de arredondamento ao descobrir a célula.
+
         Vector3 corner = installation.transform.position - offset;
         Vector3Int anchor = grid.WorldToCell(corner + new Vector3(grid.cellSize.x, 0f, grid.cellSize.z) * 0.5f);
         anchor.y = 0;
@@ -258,7 +254,6 @@ public class PlacementSystem : MonoBehaviour
             return;
         }
 
-        // Encaixa o objeto exatamente na grid.
         installation.transform.SetPositionAndRotation(
             grid.CellToWorld(anchor) + offset,
             GridRotation.Rotation(rotation));
@@ -266,7 +261,7 @@ public class PlacementSystem : MonoBehaviour
         int index = objectPlacer.Register(installation.gameObject);
         data.AddObjectAt(anchor, rotatedSize, entry.ID, index, rotation);
     }
-    // Retângulo amarelo na Scene View (com o PlacementSystem selecionado e Gizmos ligado).
+
     private void OnDrawGizmosSelected()
     {
         if (!limitToBounds || grid == null)
@@ -295,7 +290,7 @@ public class PlacementSystem : MonoBehaviour
         Bounds b = r.bounds;
         Vector3 half = new Vector3(grid.cellSize.x, 0f, grid.cellSize.z) * 0.5f;
 
-        // Meia célula pra dentro evita erro de arredondamento nas bordas.
+
         Vector3Int min = grid.WorldToCell(new Vector3(b.min.x, 0f, b.min.z) + half);
         Vector3Int max = grid.WorldToCell(new Vector3(b.max.x, 0f, b.max.z) - half);
 

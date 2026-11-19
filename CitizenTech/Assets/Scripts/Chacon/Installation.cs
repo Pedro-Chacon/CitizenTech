@@ -10,16 +10,16 @@ public class Installation : MonoBehaviour
     public int SceneDatabaseId => sceneDatabaseId;
     public InstallationDataSO Data => data;
 
-    // Quantos upgrades já foram comprados (também é o índice do PRÓXIMO upgrade).
+
     public int CurrentLevel { get; private set; }
 
-    // Compra + upgrades já pagos. Base do valor de venda.
+
     public int TotalSpent { get; private set; }
 
-    // A UI (menu, billboard) escuta isso pra se atualizar.
+
     public event Action<Installation> OnChanged;
 
-    // ---- Regras que o menu de bolhas pergunta ----
+
     public virtual bool CanMove => true;
 
     [Header("Regras")]
@@ -30,13 +30,11 @@ public class Installation : MonoBehaviour
 
     public virtual bool CanUpgrade => HasNextUpgrade;
 
-    // Usado no aviso de "instalações paradas" ao passar o dia. Subclasses sobrescrevem.
     public virtual bool IsIdle => false;
 
-    // Ação rápida ao clicar na instalação (ex.: plantar/colher). Devolve true se fez algo.
+   
     public virtual bool TryQuickAction() => false;
 
-    // Bolha extra do menu (ex.: silo abre o inventário, cavalo abre a cidade).
     public virtual bool HasExtraAction => false;
     public virtual bool CanDoExtraAction => true;
     public virtual Sprite ExtraActionIcon => null;
@@ -53,7 +51,7 @@ public class Installation : MonoBehaviour
 
     private void Start()
     {
-        // Assina no Start: o TurnManager já existe, e uma cópia desativada (ex.: preview) nunca assina.
+      
         if (TurnManager.instance != null)
             TurnManager.instance.OnDayEnded += HandleDayEnded;
     }
@@ -85,7 +83,7 @@ public class Installation : MonoBehaviour
         return true;
     }
 
-    // Soma um efeito de todos os upgrades JÁ comprados.
+
     public int GetUpgradeBonus(Func<UpgradeLevelData, int> selector)
     {
         if (data == null)
@@ -97,30 +95,29 @@ public class Installation : MonoBehaviour
         return total;
     }
 
-    // Mesmo valor que a janela de confirmação mostra e que o jogador recebe.
+
     public int GetSellValue()
     {
         if (data == null)
             return 0;
         return Mathf.FloorToInt(TotalSpent * data.refundPercent);
     }
-    // Usado pelo fantasma do "mover": copia o nível pra cópia mostrar o visual certo (ex.: carro).
+   
     public void CopyLevelFrom(Installation source)
     {
         CurrentLevel = source.CurrentLevel;
         OnUpgraded(CurrentLevel);
     }
-    // Dispara a UI de novo (útil pras subclasses quando o estado delas muda).
+
     protected void NotifyChanged()
     {
         OnChanged?.Invoke(this);
     }
 
-    // ---- Ganchos pras instalações específicas (FarmInstallation, etc.) ----
+
     protected virtual void OnDayTick() { }
     protected virtual void OnUpgraded(int newLevel) { }
 
-    // ---- Testes rápidos: botão direito no componente, em Play Mode ----
 
     [ContextMenu("Debug: tentar upgrade")]
     private void DebugUpgrade()
