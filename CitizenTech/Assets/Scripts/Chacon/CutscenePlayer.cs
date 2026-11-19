@@ -87,11 +87,17 @@ public class CutscenePlayer : MonoBehaviour
         videoPlayer.prepareCompleted += OnPrepared;
         videoPlayer.loopPointReached += OnEnded;
         videoPlayer.errorReceived += OnError;
+        videoPlayer.Stop();
+        videoPlayer.time = 0;
+        videoPlayer.frame = 0;
+        videoPlayer.skipOnDrop = false;
+        videoPlayer.waitForFirstFrame = true;
         videoPlayer.Prepare();
     }
 
     private void OnPrepared(VideoPlayer vp)
     {
+        vp.time = 0;
         Debug.Log($"[CutscenePlayer] Vídeo pronto: {vp.width}x{vp.height}, {vp.length:F1}s");
         vp.Play();
     }
