@@ -27,4 +27,13 @@ MonoBehaviour:
     tripDaysChange: -1
     bakeDaysChange: 0
     ovenOutputChange: 0
+  - displayName: Melhoria no Carro
+    image: {fileID: 0}
+    description: Deixe seu carro mais potente aumentando ainda mais sua praticidade!
+    cost: 500
+    growthDaysChange: 0
+    yieldChange: 0
+    tripDaysChange: -1
+    bakeDaysChange: 0
+    ovenOutputChange: 0
   baseTripDays: 3
