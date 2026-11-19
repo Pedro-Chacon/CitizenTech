@@ -86,6 +86,10 @@ public class OvenInstallation : Installation
             return false;
 
         State = OvenState.Baking;
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayBakeStartSFX();
+
         DaysRemaining = BakeDays;
         UpdateVisual();
         NotifyChanged();
@@ -115,6 +119,9 @@ public class OvenInstallation : Installation
         {
             DaysRemaining = 0;
             State = OvenState.Ready;
+
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayBakeDoneSFX();
         }
 
         UpdateVisual();

@@ -55,8 +55,13 @@ public class SellConfirmationPanel : MonoBehaviour
     {
         // Não vende enquanto o dia está passando.
         bool busy = TurnManager.instance != null && TurnManager.instance.IsBusy;
-        if (!busy)
+        if (!busy && target != null)
+        {
             placementSystem.SellInstallation(target);
+
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayDeleteSFX();   // NOVO
+        }
 
         Close();
     }

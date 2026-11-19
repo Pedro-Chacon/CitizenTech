@@ -32,23 +32,30 @@ public class DayTransition : MonoBehaviour
         }
     }
 
-    // Escurece, mostra "Dia X" e segura um instante.
     public IEnumerator PlayNight(int nextDay)
     {
         if (dayText != null)
             dayText.text = $"Dia {nextDay}";
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.SetNightAudio(true);   // NOVO
 
         yield return Tween(0f, 1f, fadeToNightTime, v => SetNight(v));
         yield return Tween(0f, 1f, textFadeInTime, v => SetText(v));
         yield return new WaitForSecondsRealtime(holdTime);
     }
 
-    // Some o texto e volta pro dia.
     public IEnumerator PlayDay()
     {
+        if (AudioManager.instance != null)
+            AudioManager.instance.SetNightAudio(false);  // NOVO
+
         yield return Tween(1f, 0f, textFadeOutTime, v => SetText(v));
         yield return Tween(1f, 0f, fadeToDayTime, v => SetNight(v));
     }
+
+
+
 
     private void SetNight(float value)
     {
@@ -80,4 +87,6 @@ public class DayTransition : MonoBehaviour
         }
         apply(to);
     }
+
+
 }

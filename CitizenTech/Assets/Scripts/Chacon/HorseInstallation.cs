@@ -18,6 +18,10 @@ public class HorseInstallation : Installation
     [Tooltip("Têm que ser FILHOS deste objeto na Hierarchy. Nível 0 = primeiro item, nível 1 = segundo...")]
     [SerializeField] private GameObject[] levelVisuals;
 
+    [Header("Áudio")]
+    [Tooltip("A partir de qual nível o veículo é o carro (toca o som de carro).")]
+    [SerializeField] private int carMinLevel = 1;
+
     public HorseState State { get; private set; } = HorseState.Idle;
     public int TripDaysRemaining { get; private set; }
     public int PendingProfit { get; private set; }
@@ -98,6 +102,15 @@ public class HorseInstallation : Installation
         PendingProfit = profit;
         TripDaysRemaining = TripDays;
         State = HorseState.Away;
+
+        if (AudioManager.instance != null)
+        {
+            if (CurrentLevel >= carMinLevel)
+                AudioManager.instance.PlayCarSFX();
+            else
+                AudioManager.instance.PlayHorseSFX();
+        }
+
         UpdateVisual();
         NotifyChanged();
         return true;
@@ -110,6 +123,9 @@ public class HorseInstallation : Installation
 
         if (EconomyManager.instance != null)
             EconomyManager.instance.Add(PendingProfit);
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayCollectMoneySFX();
 
         PendingProfit = 0;
         State = HorseState.Idle;

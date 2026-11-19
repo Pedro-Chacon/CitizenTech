@@ -146,6 +146,11 @@ public class UpgradePanel : MonoBehaviour
 
         target.TryUpgrade(); // gasta o dinheiro, sobe o nível e dispara OnChanged
         Refresh();
+
+        // depois:
+        if (target.TryUpgrade() && AudioManager.instance != null)
+            AudioManager.instance.PlayUpgradeSFX();
+        Refresh();
     }
 
     private void OnMoneyChanged(int money) => Refresh();

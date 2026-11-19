@@ -5,22 +5,11 @@ using FMOD.Studio;
 public class AudioManager : MonoBehaviour
 {
     [Header("Volume")]
-    [Range(0, 1)]
-
-    public float masterVolume = 1;
-    [Range(0, 1)]
-
-    public float musicVolume = 1;
-    [Range(0, 1)]
-
-    public float ambienceVolume = 1;
-    [Range(0, 1)]
-
-    public float SFXVolume = 1;
-    [Range(0, 1)]
-
-    public float UIVolume = 1;
-    [Range(0, 1)]
+    [Range(0, 1)] public float masterVolume = 1;
+    [Range(0, 1)] public float musicVolume = 1;
+    [Range(0, 1)] public float ambienceVolume = 1;
+    [Range(0, 1)] public float SFXVolume = 1;
+    [Range(0, 1)] public float UIVolume = 1;
 
     private Bus masterBus;
     private Bus ambienceBus;
@@ -32,6 +21,21 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioEventEmitter gameplayMusic;
     [SerializeField] private StudioEventEmitter resultsMusic;
 
+    [Header("Ambience Config")]
+    [Tooltip("Ambiente do dia (pássaros). Começa sozinho no início do jogo.")]
+    [SerializeField] private StudioEventEmitter dayAmbience;
+    [Tooltip("Ambiente da noite (grilos). Começa mudo e entra na transição pra noite.")]
+    [SerializeField] private StudioEventEmitter nightAmbience;
+
+    [Header("Dia / Noite (mixagem)")]
+    [Tooltip("Volume do ambiente do dia em relação à música (1 = igual, menor = mais baixo).")]
+    [Range(0, 1)][SerializeField] private float dayAmbienceLevel = 0.6f;
+    [Range(0, 1)][SerializeField] private float nightAmbienceLevel = 1f;
+    [Tooltip("Volume da música durante a noite (a música abaixa).")]
+    [Range(0, 1)][SerializeField] private float musicNightLevel = 0.25f;
+    [Tooltip("Quantos segundos leva a troca completa entre dia e noite.")]
+    [SerializeField] private float ambienceFadeTime = 3f;
+
     [Header("UI Config")]
     [SerializeField] private StudioEventEmitter buttonUISound;
     [SerializeField] private StudioEventEmitter buttonConfirmUISound;
@@ -40,14 +44,30 @@ public class AudioManager : MonoBehaviour
     [Header("SFX Config")]
     [SerializeField] private StudioEventEmitter objectPlacementSFX;
     [SerializeField] private StudioEventEmitter duckSFX;
+    [SerializeField] private StudioEventEmitter rotateSFX;
+    [SerializeField] private StudioEventEmitter purchaseSFX;
+    [SerializeField] private StudioEventEmitter deniedSFX;
+    [SerializeField] private StudioEventEmitter harvestSFX;
+    [SerializeField] private StudioEventEmitter collectMoneySFX;
+    [SerializeField] private StudioEventEmitter horseSFX;
+    [SerializeField] private StudioEventEmitter carSFX;
+    [SerializeField] private StudioEventEmitter bakeStartSFX;
+    [SerializeField] private StudioEventEmitter bakeDoneSFX;
+    [SerializeField] private StudioEventEmitter upgradeSFX;
+    [SerializeField] private StudioEventEmitter plantSFX;
+    [SerializeField] private StudioEventEmitter deleteSFX;
 
     public static AudioManager instance { get; private set; }
+
+    // 0 = dia, 1 = noite. nightBlend caminha devagar até nightTarget.
+    private float nightBlend;
+    private float nightTarget;
 
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogError("tem mais de um AudioListener na Cena!");
+            Debug.LogError("Tem mais de um AudioManager na Cena!");
         }
         instance = this;
 
@@ -58,7 +78,14 @@ public class AudioManager : MonoBehaviour
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
         uiBus = RuntimeManager.GetBus("bus:/UI");
+    }
 
+    private void Start()
+    {
+        // Os dois ambientes tocam o tempo todo; só o volume de cada um muda (ver UpdateDayNightAudio).
+        StartLoop(dayAmbience);
+        StartLoop(nightAmbience);
+        UpdateDayNightAudio();
     }
 
     private void Update()
@@ -68,7 +95,10 @@ public class AudioManager : MonoBehaviour
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(SFXVolume);
         uiBus.setVolume(UIVolume);
+
+        UpdateDayNightAudio();
     }
+
     private void LoadVolumes()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
@@ -78,40 +108,97 @@ public class AudioManager : MonoBehaviour
         UIVolume = PlayerPrefs.GetFloat("UIVolume", 1f);
     }
 
+    // ---- Dia / Noite ----
+
+    // Chamado pela transição de dia: true = vai pra noite, false = volta pro dia.
+    public void SetNightAudio(bool night)
+    {
+        nightTarget = night ? 1f : 0f;
+    }
+
+    private void UpdateDayNightAudio()
+    {
+        // Tempo não escalado: a troca continua mesmo com o jogo pausado.
+        nightBlend = Mathf.MoveTowards(
+            nightBlend, nightTarget, Time.unscaledDeltaTime / Mathf.Max(0.01f, ambienceFadeTime));
+
+        // Ida pra noite (0 -> 1): música e ambiente do dia caem primeiro, a noite entra no meio.
+        // Volta pro dia (1 -> 0): a noite cai primeiro, depois música e ambiente do dia sobem.
+        float dayGain = 1f - Smooth(0f, 0.7f, nightBlend);
+        float nightGain = Smooth(0.3f, 1f, nightBlend);
+
+        SetEmitterVolume(gameplayMusic, Mathf.Lerp(musicNightLevel, 1f, dayGain));
+        SetEmitterVolume(dayAmbience, dayAmbienceLevel * dayGain);
+        SetEmitterVolume(nightAmbience, nightAmbienceLevel * nightGain);
+    }
+
+    private static float Smooth(float from, float to, float value)
+    {
+        float t = Mathf.Clamp01((value - from) / (to - from));
+        return t * t * (3f - 2f * t);
+    }
+
+    // Volume do evento em si (multiplica o do bus): só funciona se o evento está tocando.
+    private static void SetEmitterVolume(StudioEventEmitter emitter, float volume)
+    {
+        if (emitter == null || !emitter.IsPlaying())
+            return;
+
+        emitter.EventInstance.setVolume(volume);
+    }
+
+    private static void StartLoop(StudioEventEmitter emitter)
+    {
+        if (emitter != null && !emitter.IsPlaying())
+            emitter.Play();
+    }
+
+    private static void PlayEmitter(StudioEventEmitter emitter)
+    {
+        if (emitter != null)
+            emitter.Play();
+    }
+
+    private static void StopEmitter(StudioEventEmitter emitter)
+    {
+        if (emitter != null)
+            emitter.Stop();
+    }
+
     #region AUDIOS FUNÇÕES
     public void ShowResultsAudio()
     {
-        gameplayMusic.Stop();
-        resultsMusic.Play();
-    }
-    public void PlayUIButtonSound()
-    {
-        buttonUISound.Play();
-    }
-    public void PlayUIButtonConfirmSound()
-    {
-        buttonConfirmUISound.Play();
-    }
-    public void PlayUIButtonHoverSound()
-    {
-        buttonUIHoverSound.Play();
+        StopEmitter(gameplayMusic);
+        StopEmitter(dayAmbience);
+        StopEmitter(nightAmbience);
+        PlayEmitter(resultsMusic);
     }
 
-    public void ObjectPlacementSFX()
-    {
-        objectPlacementSFX.Play();
-    }
+    public void StopMenuMusic() => StopEmitter(gameplayMusic);
 
-    public void PlayDuckSFX()
-    {
-        duckSFX.Play();
-    }
+    public void PlayUIButtonSound() => PlayEmitter(buttonUISound);
+    public void PlayUIButtonConfirmSound() => PlayEmitter(buttonConfirmUISound);
+    public void PlayUIButtonHoverSound() => PlayEmitter(buttonUIHoverSound);
 
+    public void ObjectPlacementSFX() => PlayEmitter(objectPlacementSFX);
+    public void PlayDuckSFX() => PlayEmitter(duckSFX);
+    public void PlayRotateSFX() => PlayEmitter(rotateSFX);
+    public void PlayPurchaseSFX() => PlayEmitter(purchaseSFX);
+    public void PlayDeniedSFX() => PlayEmitter(deniedSFX);
+    public void PlayHarvestSFX() => PlayEmitter(harvestSFX);
+    public void PlayCollectMoneySFX() => PlayEmitter(collectMoneySFX);
+    public void PlayHorseSFX() => PlayEmitter(horseSFX);
+    public void PlayCarSFX() => PlayEmitter(carSFX);
+    public void PlayBakeStartSFX() => PlayEmitter(bakeStartSFX);
+    public void PlayBakeDoneSFX() => PlayEmitter(bakeDoneSFX);
+    public void PlayUpgradeSFX() => PlayEmitter(upgradeSFX);
+    public void PlayPlantSFX() => PlayEmitter(plantSFX);
+    public void PlayDeleteSFX() => PlayEmitter(deleteSFX);
     #endregion
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
-        RuntimeManager.PlayOneShot(sound, worldPos);    
+        RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)
@@ -119,10 +206,4 @@ public class AudioManager : MonoBehaviour
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         return eventInstance;
     }
-    public void StopMenuMusic()
-    {
-        if (gameplayMusic != null)
-            gameplayMusic.Stop();
-    }
-
 }

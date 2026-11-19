@@ -64,18 +64,23 @@ public class PlacementState : IBuildingState
         bool placementValidity = CheckPlacementValidity(gridPosition, selectedObjectIndex);
         if (placementValidity == false)
         {
-            // INSERIR SOM WRONG PLACEMENT
-            return;
-        }
-        if (cost > 0 && (EconomyManager.instance == null || !EconomyManager.instance.TrySpend(cost)))
-        {
-            // TODO: som de "sem dinheiro"
+            // Lugar ocupado, fora da grid ou fora do limite.
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayDeniedSFX();
             return;
         }
 
-        if (AudioManager.instance != null)
+        if (cost > 0)
         {
-              AudioManager.instance.ObjectPlacementSFX(); // INSERIR PLACE OBJECT
+            if (EconomyManager.instance == null || !EconomyManager.instance.TrySpend(cost))
+            {
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlayDeniedSFX();
+                return;
+            }
+
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayPurchaseSFX();
         }
 
         Vector3 position = grid.CellToWorld(gridPosition)

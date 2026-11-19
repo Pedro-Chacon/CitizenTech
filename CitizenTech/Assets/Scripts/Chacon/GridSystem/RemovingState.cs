@@ -43,7 +43,8 @@ public class RemovingState : IBuildingState
         }
         if (selectedData == null)
         {
-            // sound (nao tem nada pra remover aqui) som de erro talvez
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayDeniedSFX();   // NOVO
         }
         else
         {
@@ -52,6 +53,9 @@ public class RemovingState : IBuildingState
                 return;
             selectedData.RemoveObjectAt(gridPosition);
             objectPlacer.RemoveObjectAt(gameObjectIndex);
+
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayDeleteSFX();   // NOVO
         }
         Vector3 cellPosition = grid.CellToWorld(gridPosition);
         previewSystem.UpdatePosition(cellPosition, CheckIfSelectionIsValid(gridPosition));

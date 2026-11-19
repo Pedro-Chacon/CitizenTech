@@ -171,6 +171,9 @@ public class PlacementSystem : MonoBehaviour
 
         buildingState.Rotate();
 
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayRotateSFX();
+
         // Atualiza o fantasma na hora, mesmo com o mouse parado.
         Vector3Int gridPosition = grid.WorldToCell(inputManager.GetSelectedMapPosition());
         buildingState.UpdateState(gridPosition);

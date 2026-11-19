@@ -84,7 +84,8 @@ public class MovingState : IBuildingState
     {
         if (!data.CanPlaceObjectAt(gridPosition, RotatedSize))
         {
-            // TODO: som de posição inválida
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayDeniedSFX();
             return;
         }
 

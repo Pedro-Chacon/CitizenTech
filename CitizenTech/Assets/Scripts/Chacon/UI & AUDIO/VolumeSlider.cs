@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 public class VolumeSlider : MonoBehaviour
 {
+    // Atenção: a ordem não pode mudar, o Unity guarda o número de cada tipo nos sliders da cena.
     private enum VolumeType
     {
         MASTER,
@@ -10,7 +12,7 @@ public class VolumeSlider : MonoBehaviour
 
         SFX,
 
-        RESTAURANTNOISE,
+        AMBIENCE,
 
         UI
     }
@@ -37,6 +39,9 @@ public class VolumeSlider : MonoBehaviour
                 break;
             case VolumeType.SFX:
                 volumeSlider.value = AudioManager.instance.SFXVolume;
+                break;
+            case VolumeType.AMBIENCE:
+                volumeSlider.value = AudioManager.instance.ambienceVolume;
                 break;
             case VolumeType.UI:
                 volumeSlider.value = AudioManager.instance.UIVolume;
@@ -65,6 +70,11 @@ public class VolumeSlider : MonoBehaviour
             case VolumeType.SFX:
                 AudioManager.instance.SFXVolume = volumeSlider.value;
                 PlayerPrefs.SetFloat("SFXVolume", volumeSlider.value);
+                break;
+
+            case VolumeType.AMBIENCE:
+                AudioManager.instance.ambienceVolume = volumeSlider.value;
+                PlayerPrefs.SetFloat("AmbienceVolume", volumeSlider.value);
                 break;
 
             case VolumeType.UI:

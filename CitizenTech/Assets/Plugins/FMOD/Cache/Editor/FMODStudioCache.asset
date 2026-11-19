@@ -440,7 +440,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -787013641699004038}
   cacheVersion: 131861
-  cacheTime: 639306732861426228
+  cacheTime: 639306878492289289
   SerializableEventsDict:
   - key: event:/UI/button_click_01
     index: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639306728288342428
+  lastModified: 639306842946148631
   FileSizes:
   - Name: Desktop
     Value: 337760
@@ -759,7 +759,7 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639306340398927733
+  lastModified: 639306878492289289
   FileSizes:
   - Name: Desktop
     Value: 3413312

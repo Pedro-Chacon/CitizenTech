@@ -3178,7 +3178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &723488570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5846,6 +5846,15 @@ MonoBehaviour:
   buttonUIHoverSound: {fileID: 8483311477492458859}
   objectPlacementSFX: {fileID: 0}
   duckSFX: {fileID: 1511131636}
+  rotateSFX: {fileID: 0}
+  purchaseSFX: {fileID: 0}
+  deniedSFX: {fileID: 0}
+  harvestSFX: {fileID: 0}
+  collectMoneySFX: {fileID: 0}
+  horseSFX: {fileID: 0}
+  carSFX: {fileID: 0}
+  bakeStartSFX: {fileID: 0}
+  bakeDoneSFX: {fileID: 0}
 --- !u!222 &2336578193397014310
 CanvasRenderer:
   m_ObjectHideFlags: 0

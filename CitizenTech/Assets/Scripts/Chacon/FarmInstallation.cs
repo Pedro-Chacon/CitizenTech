@@ -59,6 +59,10 @@ public class FarmInstallation : Installation
 
         State = PlantationState.Growing;
         DaysGrown = 0;
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayPlantSFX();   // NOVO
+
         UpdateVisual();
         NotifyChanged();
         return true;
@@ -71,6 +75,9 @@ public class FarmInstallation : Installation
             return false;
 
         InventoryManager.instance.Add(PlantationData.product, YieldPerHarvest);
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayHarvestSFX();
 
         State = PlantationState.Idle;
         DaysGrown = 0;
