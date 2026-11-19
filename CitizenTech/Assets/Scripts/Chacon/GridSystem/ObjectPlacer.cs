@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPlacer : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> placedGameObjects = new(); // VER SE ELE TIROU NO GIT
+    private List<GameObject> placedGameObjects = new(); 
 
     public int PlaceObject(GameObject prefab, Vector3 position)
         => PlaceObject(prefab, position, Quaternion.identity);

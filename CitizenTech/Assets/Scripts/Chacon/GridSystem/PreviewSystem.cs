@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PreviewSystem : MonoBehaviour
 {
-    [SerializeField] private float previewYOffset = 0.06f; // posicao acima da grid
+    [SerializeField] private float previewYOffset = 0.06f; 
 
     [SerializeField] private GameObject cellIndicator;
     private GameObject previewObject;
@@ -12,7 +12,7 @@ public class PreviewSystem : MonoBehaviour
 
     private Renderer cellIndicatorRenderer;
 
-    // Compensação do pivô e rotação atuais do fantasma (ver GridRotation).
+
     private Vector3 previewOffset = Vector3.zero;
     private Quaternion previewRotation = Quaternion.identity;
 
@@ -29,12 +29,12 @@ public class PreviewSystem : MonoBehaviour
 
         previewObject = Instantiate(prefab);
 
-        // A cópia é só visual: sem a lógica da instalação (ela não assina o evento de dia).
+   
 
         foreach (Installation installation in previewObject.GetComponentsInChildren<Installation>())
             installation.enabled = false;
 
-        // "Mover": a cópia mostra o mesmo nível (cavalo, carro...) do objeto real.
+
         if (visualSource != null)
         {
             Installation ghostInstallation = previewObject.GetComponent<Installation>();
@@ -49,7 +49,7 @@ public class PreviewSystem : MonoBehaviour
         cellIndicator.SetActive(true);
     }
 
-    // Atualiza fantasma e cursor pra uma rotação (0 a 3). baseSize é o tamanho SEM rotação.
+  
     public void SetRotation(int rotationIndex, Vector2Int baseSize, Vector3 cellSize)
     {
         previewRotation = GridRotation.Rotation(rotationIndex);
