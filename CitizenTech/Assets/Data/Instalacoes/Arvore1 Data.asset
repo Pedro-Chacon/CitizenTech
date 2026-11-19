@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arvore1 Data
   m_EditorClassIdentifier: Assembly-CSharp::InstallationDataSO
   displayName: "(Decora\xE7\xE3o) \xC1rvore macieira"
-  icon: {fileID: 0}
+  icon: {fileID: 1805711013, guid: eb65eda3791e37343b470ed6a4ed7a21, type: 3}
   price: 2
   refundPercent: 0
   upgrades: []

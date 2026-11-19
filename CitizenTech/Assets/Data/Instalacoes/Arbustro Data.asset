@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arbustro Data
   m_EditorClassIdentifier: Assembly-CSharp::InstallationDataSO
   displayName: "(Decora\xE7\xE3o) - Arbustro"
-  icon: {fileID: 0}
+  icon: {fileID: -675099596, guid: 49afc19f79d8b8449a7109d57902238d, type: 3}
   price: 1
   refundPercent: 0
   upgrades: []

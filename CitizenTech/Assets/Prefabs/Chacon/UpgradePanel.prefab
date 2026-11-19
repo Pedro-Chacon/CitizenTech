@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7125735080940843596}
   - component: {fileID: 1897323230469929289}
   - component: {fileID: 562683692378180017}
+  - component: {fileID: 3486095834055176586}
   m_Layer: 5
   m_Name: ButtonBuy
   m_TagString: Untagged
@@ -145,6 +146,18 @@ MonoBehaviour:
   visual: {fileID: 8105216849126496952}
   clickSound: 0
   playHoverSound: 1
+--- !u!114 &3486095834055176586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546638710653949869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6219a038e2f13546a5ea8fad5dbafad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlockedClickSound
 --- !u!1 &733161940032586680
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +257,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

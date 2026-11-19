@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639306340399007866
+  lastModified: 639306973462603605
   FileSizes:
   - Name: Desktop
     Value: 1670
@@ -182,6 +182,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 691875
+--- !u!114 &-4129025760584980489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutsceneGs
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutsceneGs
+  Guid:
+    Data1: -1287137720
+    Data2: 1330346385
+    Data3: -630264149
+    Data4: -1206200398
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 52392
 --- !u!114 &-3689337832654426270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +317,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 120581
+--- !u!114 &-1206431088623242041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Crafting_fail_03
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Crafting_fail_03
+  Guid:
+    Data1: -1430687521
+    Data2: 1269921596
+    Data3: 924328110
+    Data4: 379053970
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 960
 --- !u!114 &-844308877769857700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,10 +386,10 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639306340399027862
+  lastModified: 639306973462643589
   FileSizes:
   - Name: Desktop
-    Value: 2216
+    Value: 2398
   Exists: 1
 --- !u!114 &-579981627026554077
 MonoBehaviour:
@@ -391,6 +445,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 153312
+--- !u!114 &-345328351215639516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_upgrade_applied
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_upgrade_applied
+  Guid:
+    Data1: -1320199526
+    Data2: 1132401751
+    Data3: -674806339
+    Data4: 98519187
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1250
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,13 +515,17 @@ MonoBehaviour:
   - {fileID: -3689337832654426270}
   - {fileID: -5883525530560847639}
   - {fileID: -1602114156304667944}
+  - {fileID: -345328351215639516}
+  - {fileID: -1206431088623242041}
+  - {fileID: 3051200951551390601}
+  - {fileID: -4129025760584980489}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8624902305186868465}
   StringsBanks:
   - {fileID: -787013641699004038}
   cacheVersion: 131861
-  cacheTime: 639306878492289289
+  cacheTime: 639306976964311802
   SerializableEventsDict:
   - key: event:/UI/button_click_01
     index: 0
@@ -488,6 +573,14 @@ MonoBehaviour:
     index: 21
   - key: event:/UI/SFX_ButtonClick_Oficial
     index: 22
+  - key: event:/SFX/SFX_upgrade_applied
+    index: 23
+  - key: event:/SFX/Crafting_fail_03
+    index: 24
+  - key: event:/SFX/SFX_Plantar
+    index: 25
+  - key: event:/SFX/CutsceneGs
+    index: 26
 --- !u!114 &217124617728632787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,10 +650,10 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639306842946148631
+  lastModified: 639306976964311802
   FileSizes:
   - Name: Desktop
-    Value: 337760
+    Value: 1071616
   Exists: 1
 --- !u!114 &2038918987375742482
 MonoBehaviour:
@@ -609,6 +702,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 29472
   Exists: 1
+--- !u!114 &3051200951551390601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Plantar
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_Plantar
+  Guid:
+    Data1: 1401099250
+    Data2: 1134299635
+    Data3: -1968467288
+    Data4: 504442242
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 720
 --- !u!114 &3086176224075151000
 MonoBehaviour:
   m_ObjectHideFlags: 0

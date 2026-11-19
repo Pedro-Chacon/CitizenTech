@@ -415,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880224232226789327, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6880224232226789327, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -431,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880224232226789327, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayUIButtonSound
+      value: PlayCutsceneAudio
       objectReference: {fileID: 0}
     - target: {fileID: 6880224232226789327, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2674,6 +2674,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &662474319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 662474320}
+  - component: {fileID: 662474322}
+  - component: {fileID: 662474321}
+  m_Layer: 5
+  m_Name: Fundo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &662474320
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662474319}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7928648076859921619}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &662474321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662474319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &662474322
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662474319}
+  m_CullTransparentMesh: 1
 --- !u!1 &697054875
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4262,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!1 &1351884570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351884571}
+  - component: {fileID: 1351884572}
+  m_Layer: 0
+  m_Name: CutsceneAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351884571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351884570}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 108821163323096112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351884572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351884570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1287137720
+      Data2: 1330346385
+      Data3: -630264149
+      Data4: -1206200398
+    Path: event:/SFX/CutsceneGs
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1355114553 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6880224232226789327, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
@@ -4516,7 +4654,7 @@ RectTransform:
   m_GameObject: {fileID: 1493398425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.505251, y: 107.37509, z: 7.8855}
+  m_LocalScale: {x: 9.377039, y: 104.69072, z: 7.8855}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 905561823}
@@ -4988,6 +5126,18 @@ PrefabInstance:
       value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.61106
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.61106
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.61106
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5017,11 +5167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 588
+      value: 615
       objectReference: {fileID: 0}
     - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -274
+      value: -267
       objectReference: {fileID: 0}
     - target: {fileID: 6210074043079188094, guid: 566a0d43abbcf454e89229a2776d874f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5126,6 +5276,7 @@ Transform:
   - {fileID: 2610127494359187240}
   - {fileID: 8857922629057992431}
   - {fileID: 1511131637}
+  - {fileID: 1351884571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &346536543779143204
@@ -5841,6 +5992,12 @@ MonoBehaviour:
   UIVolume: 1
   gameplayMusic: {fileID: 3949064233264340878}
   resultsMusic: {fileID: 0}
+  dayAmbience: {fileID: 0}
+  nightAmbience: {fileID: 0}
+  dayAmbienceLevel: 0.6
+  nightAmbienceLevel: 1
+  musicNightLevel: 0.25
+  ambienceFadeTime: 3
   buttonUISound: {fileID: 8772651983046952301}
   buttonConfirmUISound: {fileID: 7257471506444268899}
   buttonUIHoverSound: {fileID: 8483311477492458859}
@@ -5855,6 +6012,10 @@ MonoBehaviour:
   carSFX: {fileID: 0}
   bakeStartSFX: {fileID: 0}
   bakeDoneSFX: {fileID: 0}
+  upgradeSFX: {fileID: 0}
+  plantSFX: {fileID: 0}
+  deleteSFX: {fileID: 0}
+  CutsceneAudio: {fileID: 1351884572}
 --- !u!222 &2336578193397014310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7807,6 +7968,7 @@ RectTransform:
   - {fileID: 5367310320972614772}
   - {fileID: 1700839971}
   - {fileID: 723488570}
+  - {fileID: 662474320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

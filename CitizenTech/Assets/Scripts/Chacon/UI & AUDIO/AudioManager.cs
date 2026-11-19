@@ -57,6 +57,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioEventEmitter plantSFX;
     [SerializeField] private StudioEventEmitter deleteSFX;
 
+    [SerializeField] private StudioEventEmitter CutsceneAudio;
     public static AudioManager instance { get; private set; }
 
     // 0 = dia, 1 = noite. nightBlend caminha devagar até nightTarget.
@@ -194,6 +195,7 @@ public class AudioManager : MonoBehaviour
     public void PlayUpgradeSFX() => PlayEmitter(upgradeSFX);
     public void PlayPlantSFX() => PlayEmitter(plantSFX);
     public void PlayDeleteSFX() => PlayEmitter(deleteSFX);
+    public void PlayCutsceneAudio() => PlayEmitter(CutsceneAudio);
     #endregion
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
