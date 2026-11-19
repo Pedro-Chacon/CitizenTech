@@ -13,6 +13,9 @@ public class AudioManager : MonoBehaviour
     public float musicVolume = 1;
     [Range(0, 1)]
 
+    public float ambienceVolume = 1;
+    [Range(0, 1)]
+
     public float SFXVolume = 1;
     [Range(0, 1)]
 
@@ -20,6 +23,7 @@ public class AudioManager : MonoBehaviour
     [Range(0, 1)]
 
     private Bus masterBus;
+    private Bus ambienceBus;
     private Bus musicBus;
     private Bus sfxBus;
     private Bus uiBus;
@@ -35,6 +39,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX Config")]
     [SerializeField] private StudioEventEmitter objectPlacementSFX;
+    [SerializeField] private StudioEventEmitter duckSFX;
 
     public static AudioManager instance { get; private set; }
 
@@ -49,6 +54,7 @@ public class AudioManager : MonoBehaviour
         LoadVolumes();
 
         masterBus = RuntimeManager.GetBus("bus:/");
+        ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
         uiBus = RuntimeManager.GetBus("bus:/UI");
@@ -58,6 +64,7 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         masterBus.setVolume(masterVolume);
+        ambienceBus.setVolume(ambienceVolume);
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(SFXVolume);
         uiBus.setVolume(UIVolume);
@@ -65,6 +72,7 @@ public class AudioManager : MonoBehaviour
     private void LoadVolumes()
     {
         masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", 1f);
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
         UIVolume = PlayerPrefs.GetFloat("UIVolume", 1f);
@@ -92,6 +100,11 @@ public class AudioManager : MonoBehaviour
     public void ObjectPlacementSFX()
     {
         objectPlacementSFX.Play();
+    }
+
+    public void PlayDuckSFX()
+    {
+        duckSFX.Play();
     }
 
     #endregion

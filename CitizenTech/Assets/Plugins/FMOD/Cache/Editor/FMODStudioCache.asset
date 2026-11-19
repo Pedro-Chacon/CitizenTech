@@ -15,11 +15,38 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639294755191446938
+  lastModified: 639306340399007866
   FileSizes:
   - Name: Desktop
-    Value: 1524
+    Value: 1670
   Exists: 1
+--- !u!114 &-6588813603462835392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Easy LemonMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Easy LemonMusic
+  Guid:
+    Data1: 935523310
+    Data2: 1138499758
+    Data3: -1324332364
+    Data4: 1063362521
+  Banks:
+  - {fileID: 9143010120209593694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 126380
 --- !u!114 &-6456612755698167269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +74,141 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 275
+--- !u!114 &-5943644319269000418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Colocando_Instalacao_Mover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Colocando_Instalacao_Mover
+  Guid:
+    Data1: -1877346003
+    Data2: 1192002306
+    Data3: -1060451448
+    Data4: 1163783786
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 280
+--- !u!114 &-5883525530560847639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_MoneyCollect
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_MoneyCollect
+  Guid:
+    Data1: 1703045367
+    Data2: 1094524377
+    Data3: -1282451047
+    Data4: -1066426682
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 389
+--- !u!114 &-4866282489151249914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Harvest
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_Harvest
+  Guid:
+    Data1: -1068820824
+    Data2: 1268099003
+    Data3: -585807482
+    Data4: 2001782644
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-4545697455634285092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/FarmMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/FarmMusic
+  Guid:
+    Data1: 793283480
+    Data2: 1192400600
+    Data3: 1336151685
+    Data4: -1728913539
+  Banks:
+  - {fileID: 9143010120209593694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 691875
+--- !u!114 &-3689337832654426270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_TimerStart
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_TimerStart
+  Guid:
+    Data1: -657300291
+    Data2: 1226476551
+    Data3: -1204097381
+    Data4: -1336294581
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-2272081789997510139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +235,88 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 183875
+  Length: 269248
+--- !u!114 &-1602114156304667944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/SFX_ButtonClick_Oficial
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/SFX_ButtonClick_Oficial
+  Guid:
+    Data1: -384789261
+    Data2: 1312391332
+    Data3: -394285386
+    Data4: 987592206
+  Banks:
+  - {fileID: 2671434078894277458}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 440
+--- !u!114 &-1297064497518180771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/noite_grilos
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ambience/noite_grilos
+  Guid:
+    Data1: -2007316480
+    Data2: 1214854281
+    Data3: 596300974
+    Data4: 1022795472
+  Banks:
+  - {fileID: 5153997865959126969}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 120581
+--- !u!114 &-844308877769857700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_TimerEnd
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_TimerEnd
+  Guid:
+    Data1: 292413556
+    Data2: 1254395482
+    Data3: -216212833
+    Data4: 1166179117
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1477
 --- !u!114 &-787013641699004038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,10 +332,10 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639294755191476938
+  lastModified: 639306340399027862
   FileSizes:
   - Name: Desktop
-    Value: 1214
+    Value: 2216
   Exists: 1
 --- !u!114 &-579981627026554077
 MonoBehaviour:
@@ -121,6 +364,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 381
+--- !u!114 &-559482512931574404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MorningMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/MorningMusic
+  Guid:
+    Data1: 121033778
+    Data2: 1170510638
+    Data3: -556253033
+    Data4: 1017421403
+  Banks:
+  - {fileID: 9143010120209593694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 153312
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,13 +415,32 @@ MonoBehaviour:
   - {fileID: 1110741005932981121}
   - {fileID: -579981627026554077}
   - {fileID: -2272081789997510139}
+  - {fileID: -1297064497518180771}
+  - {fileID: 3331747377266138398}
+  - {fileID: 3086176224075151000}
+  - {fileID: -559482512931574404}
+  - {fileID: 2038918987375742482}
+  - {fileID: -4545697455634285092}
+  - {fileID: -6588813603462835392}
+  - {fileID: 4187633393953912676}
+  - {fileID: 217124617728632787}
+  - {fileID: -5943644319269000418}
+  - {fileID: 3450422595153494396}
+  - {fileID: 5362791476452450567}
+  - {fileID: -844308877769857700}
+  - {fileID: 3225724354168893386}
+  - {fileID: 7579970601844631921}
+  - {fileID: -4866282489151249914}
+  - {fileID: -3689337832654426270}
+  - {fileID: -5883525530560847639}
+  - {fileID: -1602114156304667944}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8624902305186868465}
   StringsBanks:
   - {fileID: -787013641699004038}
   cacheVersion: 131861
-  cacheTime: 639294755402056274
+  cacheTime: 639306732861426228
   SerializableEventsDict:
   - key: event:/UI/button_click_01
     index: 0
@@ -161,6 +450,71 @@ MonoBehaviour:
     index: 2
   - key: event:/Music/The Parting
     index: 3
+  - key: event:/Ambience/noite_grilos
+    index: 4
+  - key: event:/Ambience/AmbienciaPassarosVento
+    index: 5
+  - key: event:/Ambience/AmbienciaFarm
+    index: 6
+  - key: event:/Music/MorningMusic
+    index: 7
+  - key: event:/Music/The Forest and the TreesMusic
+    index: 8
+  - key: event:/Music/FarmMusic
+    index: 9
+  - key: event:/Music/Easy LemonMusic
+    index: 10
+  - key: event:/SFX/purchase_success_05
+    index: 11
+  - key: event:/SFX/Rotacionar
+    index: 12
+  - key: event:/SFX/Colocando_Instalacao_Mover
+    index: 13
+  - key: event:/SFX/SFX_HorseStep
+    index: 14
+  - key: event:/SFX/ErroR_access_denied_04
+    index: 15
+  - key: event:/SFX/SFX_TimerEnd
+    index: 16
+  - key: event:/SFX/pato
+    index: 17
+  - key: event:/SFX/SFX_CarHorn
+    index: 18
+  - key: event:/SFX/SFX_Harvest
+    index: 19
+  - key: event:/SFX/SFX_TimerStart
+    index: 20
+  - key: event:/SFX/SFX_MoneyCollect
+    index: 21
+  - key: event:/UI/SFX_ButtonClick_Oficial
+    index: 22
+--- !u!114 &217124617728632787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Rotacionar
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Rotacionar
+  Guid:
+    Data1: 1484269342
+    Data2: 1194142467
+    Data3: -1461811558
+    Data4: 1713489453
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 330
 --- !u!114 &1110741005932981121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,11 +557,38 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639294638683095564
+  lastModified: 639306728288342428
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 337760
   Exists: 1
+--- !u!114 &2038918987375742482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/The Forest and the TreesMusic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/The Forest and the TreesMusic
+  Guid:
+    Data1: -598881971
+    Data2: 1316966049
+    Data3: 389597098
+    Data4: -1064481541
+  Banks:
+  - {fileID: 9143010120209593694}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 94248
 --- !u!114 &2671434078894277458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,11 +604,146 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639294755192030567
+  lastModified: 639306732861426228
   FileSizes:
   - Name: Desktop
-    Value: 18624
+    Value: 29472
   Exists: 1
+--- !u!114 &3086176224075151000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/AmbienciaFarm
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ambience/AmbienciaFarm
+  Guid:
+    Data1: -497517655
+    Data2: 1099671459
+    Data3: -1005691243
+    Data4: -1663461115
+  Banks:
+  - {fileID: 5153997865959126969}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 111552
+--- !u!114 &3225724354168893386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/pato
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/pato
+  Guid:
+    Data1: -2127447902
+    Data2: 1276637756
+    Data3: 921641114
+    Data4: -1344986641
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 560
+--- !u!114 &3331747377266138398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/AmbienciaPassarosVento
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ambience/AmbienciaPassarosVento
+  Guid:
+    Data1: 294491714
+    Data2: 1336488005
+    Data3: -256950140
+    Data4: 531253921
+  Banks:
+  - {fileID: 5153997865959126969}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 111552
+--- !u!114 &3450422595153494396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_HorseStep
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_HorseStep
+  Guid:
+    Data1: 1265367346
+    Data2: 1172598583
+    Data3: -1961932895
+    Data4: 1308806598
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1990
+--- !u!114 &4187633393953912676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/purchase_success_05
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/purchase_success_05
+  Guid:
+    Data1: 375616793
+    Data2: 1116053367
+    Data3: -619148661
+    Data4: -635227696
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1224
 --- !u!114 &5153997865959126969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,11 +759,65 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639294638682835625
+  lastModified: 639306340398927733
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 3413312
   Exists: 1
+--- !u!114 &5362791476452450567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ErroR_access_denied_04
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/ErroR_access_denied_04
+  Guid:
+    Data1: -1928734154
+    Data2: 1210560375
+    Data3: -1701442421
+    Data4: -2024511860
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 410
+--- !u!114 &7579970601844631921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_CarHorn
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_CarHorn
+  Guid:
+    Data1: -1358332249
+    Data2: 1329451865
+    Data3: 1985081253
+    Data4: -880172484
+  Banks:
+  - {fileID: 1445734032736539023}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2008
 --- !u!114 &9143010120209593694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +833,8 @@ MonoBehaviour:
   Path: C:/Users/chaco/Documents/FMOD_CitizenTech/Arquivo_FmodCitizenTech/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639294755402056274
+  lastModified: 639306340400200816
   FileSizes:
   - Name: Desktop
-    Value: 2412384
+    Value: 8922592
   Exists: 1

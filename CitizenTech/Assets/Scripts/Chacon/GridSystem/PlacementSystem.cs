@@ -158,7 +158,7 @@ public class PlacementSystem : MonoBehaviour
         if (AudioManager.instance != null)
         {
 
-            //      AudioManager.instance.ObjectPlacementSFX(); // TODO: trocar por um som de venda
+                  AudioManager.instance.ObjectPlacementSFX(); // TODO: trocar por um som de venda
         }
         return true;
     }
