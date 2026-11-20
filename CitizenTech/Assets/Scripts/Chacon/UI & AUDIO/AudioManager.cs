@@ -22,18 +22,16 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioEventEmitter resultsMusic;
 
     [Header("Ambience Config")]
-    [Tooltip("Ambiente do dia (pássaros). Começa sozinho no início do jogo.")]
     [SerializeField] private StudioEventEmitter dayAmbience;
-    [Tooltip("Ambiente da noite (grilos). Começa mudo e entra na transição pra noite.")]
     [SerializeField] private StudioEventEmitter nightAmbience;
 
     [Header("Dia / Noite (mixagem)")]
-    [Tooltip("Volume do ambiente do dia em relação à música (1 = igual, menor = mais baixo).")]
+
     [Range(0, 1)][SerializeField] private float dayAmbienceLevel = 0.6f;
     [Range(0, 1)][SerializeField] private float nightAmbienceLevel = 1f;
-    [Tooltip("Volume da música durante a noite (a música abaixa).")]
+
     [Range(0, 1)][SerializeField] private float musicNightLevel = 0.25f;
-    [Tooltip("Quantos segundos leva a troca completa entre dia e noite.")]
+
     [SerializeField] private float ambienceFadeTime = 3f;
 
     [Header("UI Config")]
@@ -60,7 +58,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioEventEmitter CutsceneAudio;
     public static AudioManager instance { get; private set; }
 
-    // 0 = dia, 1 = noite. nightBlend caminha devagar até nightTarget.
+    // 0 = dia, 1 = noite. 
     private float nightBlend;
     private float nightTarget;
 
@@ -83,7 +81,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // Os dois ambientes tocam o tempo todo; só o volume de cada um muda (ver UpdateDayNightAudio).
         StartLoop(dayAmbience);
         StartLoop(nightAmbience);
         UpdateDayNightAudio();
@@ -109,9 +106,6 @@ public class AudioManager : MonoBehaviour
         UIVolume = PlayerPrefs.GetFloat("UIVolume", 1f);
     }
 
-    // ---- Dia / Noite ----
-
-    // Chamado pela transição de dia: true = vai pra noite, false = volta pro dia.
     public void SetNightAudio(bool night)
     {
         nightTarget = night ? 1f : 0f;
@@ -119,12 +113,9 @@ public class AudioManager : MonoBehaviour
 
     private void UpdateDayNightAudio()
     {
-        // Tempo não escalado: a troca continua mesmo com o jogo pausado.
         nightBlend = Mathf.MoveTowards(
             nightBlend, nightTarget, Time.unscaledDeltaTime / Mathf.Max(0.01f, ambienceFadeTime));
 
-        // Ida pra noite (0 -> 1): música e ambiente do dia caem primeiro, a noite entra no meio.
-        // Volta pro dia (1 -> 0): a noite cai primeiro, depois música e ambiente do dia sobem.
         float dayGain = 1f - Smooth(0f, 0.7f, nightBlend);
         float nightGain = Smooth(0.3f, 1f, nightBlend);
 
@@ -139,7 +130,6 @@ public class AudioManager : MonoBehaviour
         return t * t * (3f - 2f * t);
     }
 
-    // Volume do evento em si (multiplica o do bus): só funciona se o evento está tocando.
     private static void SetEmitterVolume(StudioEventEmitter emitter, float volume)
     {
         if (emitter == null || !emitter.IsPlaying())
@@ -176,11 +166,9 @@ public class AudioManager : MonoBehaviour
     }
 
     public void StopMenuMusic() => StopEmitter(gameplayMusic);
-
     public void PlayUIButtonSound() => PlayEmitter(buttonUISound);
     public void PlayUIButtonConfirmSound() => PlayEmitter(buttonConfirmUISound);
     public void PlayUIButtonHoverSound() => PlayEmitter(buttonUIHoverSound);
-
     public void ObjectPlacementSFX() => PlayEmitter(objectPlacementSFX);
     public void PlayDuckSFX() => PlayEmitter(duckSFX);
     public void PlayRotateSFX() => PlayEmitter(rotateSFX);

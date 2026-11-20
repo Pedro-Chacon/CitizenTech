@@ -9,6 +9,8 @@ public class PlacementSystem : MonoBehaviour
 
     [SerializeField] private GameObject gridVisualization;
 
+    [SerializeField] private GameObject controlHints;
+
     private GridData floorData, furnitureData;
 
     [SerializeField] private PreviewSystem preview;
@@ -24,7 +26,6 @@ public class PlacementSystem : MonoBehaviour
     [Tooltip("Largura e profundidade da área jogável, em células.")]
     [SerializeField] private Vector2Int boundsSize = new Vector2Int(10, 10);
 
-    [Tooltip("Tecla que gira o objeto em passos de 90° durante o posicionamento.")]
     [SerializeField] private KeyCode rotateKey = KeyCode.R;
 
     IBuildingState buildingState;
@@ -33,6 +34,7 @@ public class PlacementSystem : MonoBehaviour
 
     void Start()
     {
+        SetGridVisible(false);
         StopPlacement();
         floorData = new();
         furnitureData = new();
@@ -45,11 +47,17 @@ public class PlacementSystem : MonoBehaviour
 
         RegisterSceneInstallations();
     }
+    private void SetGridVisible(bool visible)
+    {
+        gridVisualization.SetActive(visible);
 
+        if (controlHints != null)
+            controlHints.SetActive(visible);
+    }
     public void StartPlacement(int ID)
     {
         StopPlacement();
-        gridVisualization.SetActive(true);
+        SetGridVisible(true);
         buildingState = new PlacementState(ID,
                                            grid,
                                            preview,
@@ -86,7 +94,7 @@ public class PlacementSystem : MonoBehaviour
             return false;
 
         StopPlacement();
-        gridVisualization.SetActive(true);
+        SetGridVisible(true);
         buildingState = new PlacementState(ID, grid, preview, database,
                                            floorData, furnitureData, objectPlacer,
                                            StopPlacement, itemData.price);
@@ -98,7 +106,7 @@ public class PlacementSystem : MonoBehaviour
     public void StartRemoving()
     {
         StopPlacement();
-        gridVisualization.SetActive(true);
+        SetGridVisible(true);
         buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
@@ -113,7 +121,7 @@ public class PlacementSystem : MonoBehaviour
         if (!state.IsValid)
             return;
 
-        gridVisualization.SetActive(true);
+        SetGridVisible(true);
         buildingState = state;
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
@@ -194,7 +202,7 @@ public class PlacementSystem : MonoBehaviour
     {
         if (buildingState == null)
             return;
-        gridVisualization.SetActive(false);
+        SetGridVisible(false);
         buildingState.EndState();
         inputManager.OnClicked -= PlaceStructure;
         inputManager.OnExit -= StopPlacement;
