@@ -38,7 +38,7 @@ public class FarmInstallation : Installation
         : 0;
     public int DaysRemaining => Mathf.Max(0, GrowthDays - DaysGrown);
 
-    // Plantação esperando o jogador conta como "parada" no aviso de passar o dia.
+
     public override bool IsIdle => State == PlantationState.Idle;
 
     protected override void Awake()
@@ -48,10 +48,10 @@ public class FarmInstallation : Installation
         if (PlantationData == null)
             Debug.LogError($"[{name}] O campo Data precisa ser um PlantationDataSO.", this);
 
-        UpdateVisual(); // também faz o preview (cópia do prefab) aparecer só como terra arada
+        UpdateVisual(); 
     }
 
-    // Chamado pelo ícone de "plantar" do billboard.
+
     public bool Plant()
     {
         if (State != PlantationState.Idle)
@@ -61,14 +61,13 @@ public class FarmInstallation : Installation
         DaysGrown = 0;
 
         if (AudioManager.instance != null)
-            AudioManager.instance.PlayPlantSFX();   // NOVO
+            AudioManager.instance.PlayPlantSFX();  
 
         UpdateVisual();
         NotifyChanged();
         return true;
     }
 
-    // Chamado pelo ícone de "colher" do billboard.
     public bool Harvest()
     {
         if (State != PlantationState.Ready || InventoryManager.instance == null || PlantationData == null)
@@ -123,7 +122,6 @@ public class FarmInstallation : Installation
         }
         else if (State == PlantationState.Growing)
         {
-            // Distribui as fases antes da última ao longo dos dias de crescimento.
             float progress = Mathf.Clamp01((float)DaysGrown / GrowthDays);
             shown = Mathf.Min(Mathf.FloorToInt(progress * last), last);
         }
@@ -135,7 +133,6 @@ public class FarmInstallation : Installation
         }
     }
 
-    // Irrigadores, drones... aparecem conforme o nível, em qualquer fase da plantação.
     private void UpdateUpgradeVisuals()
     {
         if (upgradeVisuals == null)
@@ -146,7 +143,7 @@ public class FarmInstallation : Installation
             if (!IsValidVisual(upgradeVisuals[i], "Upgrade Visuals", i))
                 continue;
 
-            // Item i pertence ao upgrade de número i+1.
+
             bool show = replacePreviousUpgradeVisual
                 ? CurrentLevel == i + 1
                 : CurrentLevel >= i + 1;
@@ -155,8 +152,6 @@ public class FarmInstallation : Installation
         }
     }
 
-    // O visual TEM que ser um filho deste objeto. Se fosse o próprio objeto ou um prefab da
-    // pasta Project, desativá-lo faria a plantação sumir ou não mudaria nada na cena.
     private bool IsValidVisual(GameObject visual, string fieldName, int index)
     {
         if (visual == null)
@@ -164,6 +159,7 @@ public class FarmInstallation : Installation
 
         if (visual == gameObject || !visual.transform.IsChildOf(transform))
         {
+            // debugs com ajuda de ia
             Debug.LogError(
                 $"[{name}] {fieldName} [{index}] ('{visual.name}') precisa ser um FILHO deste objeto na Hierarchy " +
                 "(não o próprio objeto, nem um prefab da pasta Project).", this);
@@ -188,7 +184,6 @@ public class FarmInstallation : Installation
         UpdateVisual();
     }
 
-    // ---- Testes rápidos: botão direito no componente, em Play Mode ----
 
     [ContextMenu("Debug: plantar")]
     private void DebugPlant()

@@ -5,7 +5,6 @@ public class Installation : MonoBehaviour
 {
     [SerializeField] protected InstallationDataSO data;
 
-    [Tooltip("ID do ObjectsDatabaseSO, se esta instalação já nasce na cena (silo, casa, cavalo). -1 = não é de cena.")]
     [SerializeField] private int sceneDatabaseId = -1;
     public int SceneDatabaseId => sceneDatabaseId;
     public InstallationDataSO Data => data;
@@ -23,7 +22,7 @@ public class Installation : MonoBehaviour
     public virtual bool CanMove => true;
 
     [Header("Regras")]
-    [Tooltip("Desmarque para bloquear o botão de vender (casa, silo, cavalo...).")]
+    
     [SerializeField] private bool sellable = true;
 
     public virtual bool CanSell => sellable;
